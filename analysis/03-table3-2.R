@@ -1,10 +1,12 @@
 # analysis/03-table3-2_ccc.R
 # Table 3-2: Lin's CCC (95% CI)
-# Pairs:
-# 1) O-SYS vs C-SYS
-# 2) K-SYS vs C-SYS
-# 3) O-DIA vs C-DIA
-# 4) K-DIA vs C-DIA
+# Display layout:
+# SBP
+#   Oscillo vs. Auscl
+#   Ksens vs. Auscl
+# DBP
+#   Oscillo vs. Auscl
+#   Ksens vs. Auscl
 
 library(dplyr)
 library(tidyr)
@@ -56,13 +58,14 @@ calc_ccc <- function(data, x, y) {
 
 # ---- 5) Pairs (Table 3-2) ----
 pairs <- tibble(
-  `device comparison` = c("O-SYS vs C-SYS", "K-SYS vs C-SYS", "O-DIA vs C-DIA", "K-DIA vs C-DIA"),
+  section = c("SBP", "SBP", "DBP", "DBP"),
+  comparison = c("Oscillo vs. Auscl", "Ksens vs. Auscl", "Oscillo vs. Auscl", "Ksens vs. Auscl"),
   x = c(col_map$o_sys, col_map$k_sys, col_map$o_dia, col_map$k_dia),
   y = c(col_map$c_sys, col_map$c_sys, col_map$c_dia, col_map$c_dia)
 )
 
 # ---- 6) Compute ----
-res_tbl <- pairs %>%
+res_raw <- pairs %>%
   mutate(result = purrr::map2(x, y, ~ calc_ccc(df_num, .x, .y))) %>%
   tidyr::unnest(result) %>%
   mutate(
@@ -72,7 +75,18 @@ res_tbl <- pairs %>%
       sprintf("%.3f [%.3f, %.3f]", ccc, ci_low, ci_high)
     )
   ) %>%
-  select(`device comparison`, `CCC (95% CI)`)
+  select(section, comparison, `CCC (95% CI)`)
+
+res_tbl <- bind_rows(
+  tibble(`device comparison` = "SBP", `CCC (95% CI)` = NA_character_),
+  res_raw %>%
+    filter(section == "SBP") %>%
+    transmute(`device comparison` = comparison, `CCC (95% CI)`),
+  tibble(`device comparison` = "DBP", `CCC (95% CI)` = NA_character_),
+  res_raw %>%
+    filter(section == "DBP") %>%
+    transmute(`device comparison` = comparison, `CCC (95% CI)`)
+)
 
 print(res_tbl)
 
