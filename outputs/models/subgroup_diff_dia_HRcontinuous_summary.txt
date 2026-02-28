@@ -1,0 +1,47 @@
+
+> print(summary(m_hr))
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Formula: Y_diff_dia ~ HR_c + Age + Sex + arm + Af + HTN + DM + other_ascvd +  
+    PAD + (1 | ID)
+   Data: d_hr
+
+REML criterion at convergence: 4225.2
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-8.3494 -0.3945 -0.0220  0.3791  4.8311 
+
+Random effects:
+ Groups   Name        Variance Std.Dev.
+ ID       (Intercept) 34.07    5.837   
+ Residual             16.08    4.010   
+Number of obs: 686, groups:  ID, 178
+
+Fixed effects:
+                Estimate Std. Error        df t value Pr(>|t|)   
+(Intercept)      0.50692    6.32456 162.75123   0.080  0.93622   
+HR_c             0.07763    0.02909 360.18744   2.669  0.00796 **
+Age              0.02535    0.05351 156.70284   0.474  0.63628   
+SexM            -0.15283    1.22301 155.76857  -0.125  0.90071   
+arm             -0.21437    0.15200 184.88565  -1.410  0.16012   
+AfYes            2.22518    1.42038 165.41588   1.567  0.11912   
+HTNYes          -0.78428    1.10503 156.11296  -0.710  0.47893   
+DMYes            0.74208    0.91142 217.67469   0.814  0.41642   
+other_ascvdYes  -1.03626    1.01249 156.51331  -1.023  0.30766   
+PADYes          -5.84078    2.65531 161.42926  -2.200  0.02925 * 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+            (Intr) HR_c   Age    SexM   arm    AfYes  HTNYes DMYes  othr_Y
+HR_c        -0.080                                                        
+Age         -0.759  0.145                                                 
+SexM        -0.126 -0.104  0.069                                          
+arm         -0.808  0.047  0.312 -0.092                                   
+AfYes       -0.013 -0.105 -0.204 -0.061  0.087                            
+HTNYes      -0.068 -0.100 -0.078  0.125 -0.085  0.213                     
+DMYes       -0.063 -0.184  0.005 -0.017  0.009  0.047 -0.007              
+othr_scvdYs -0.057  0.100 -0.077 -0.226  0.023  0.220  0.174  0.023       
+PADYes      -0.029 -0.055 -0.009 -0.016  0.059 -0.076 -0.015 -0.085 -0.065
+
+> sink()

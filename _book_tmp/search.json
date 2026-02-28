@@ -1,0 +1,52 @@
+[
+  {
+    "objectID": "chapters/03-results.html",
+    "href": "chapters/03-results.html",
+    "title": "3  Results",
+    "section": "",
+    "text": "3.1 Study Population\nTable 3-1. Baseline characteristics of the study population.\n\n\n\n\n\n\nVariable\nmean ± SD\nor n(%)\n\n\n\n\nDemographics\n\n\n\nAge, years\n67.39 ± 9.61\n\n\nSex\n142 (79.8%)\n\n\nAnthropometrics\n\n\n\nHeight, cm\n164.15 ± 8.05\n\n\nWeight, kg\n71.43 ± 13.52\n\n\nBMI, kg/m2\n26.38 ± 3.89\n\n\nComorbidities\n\n\n\nHTN\n129 (72.5%)\n\n\nDM\n69 (38.8%)\n\n\nCAD\n90 (50.6%)\n\n\nAMI\n61 (34.3%)\n\n\nStroke\n7 (3.9%)\n\n\nHF\n27 (15.2%)\n\n\nAF\n28 (15.7%)\n\n\nPAD\n6 (3.4%)\nTable 3-1 summarizes the baseline characteristics of the study population. The mean age was 67.39 +/- 9.61 years, and 142 participants (79.8%) were male. The mean height, body weight, and body mass index were 164.15 +/- 8.05 cm, 71.43 +/- 13.52 kg, and 26.38 +/- 3.89 kg/m2, respectively. Hypertension was the most prevalent comorbidity (129, 72.5%), followed by coronary artery disease (90, 50.6%), diabetes mellitus (69, 38.8%), and a history of acute myocardial infarction (61, 34.3%). Heart failure and atrial fibrillation were present in 27 (15.2%) and 28 (15.7%) participants, whereas stroke (7, 3.9%) and peripheral arterial disease (6, 3.4%) were less common.\nFigure 3-1. Study population flow and composition.\nAs shown in Figure 3-1, a total of 197 patients contributed 891 blood pressure measurement attempts during the study period. Seven attempts were excluded before device feasibility analysis because of human operation error (n = 3) or severe tremor (n = 4), leaving 884 attempts for feasibility evaluation. Among these, additional attempts were excluded due to Oscillo-BP measurement failure (n = 143), Ksens-BP acquisition error (n = 61), or concurrent failure of both devices (n = 6). The final analytic dataset therefore comprised 686 successful paired measurements from 178 patients.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Results</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-results.html#agreement-between-devices",
+    "href": "chapters/03-results.html#agreement-between-devices",
+    "title": "3  Results",
+    "section": "3.2 Agreement Between Devices",
+    "text": "3.2 Agreement Between Devices\n\n\n\n\n\n\nTable 3-2. Agreement metrics between devices.\n\n\ndevice comparison\nCCC (95% CI)\n\n\n\n\nO-SYS vs C-SYS\n0.903 [0.888, 0.916]\n\n\nK-SYS vs C-SYS\n0.957 [0.950, 0.962]\n\n\nO-DIA vs C-DIA\n0.851 [0.831, 0.869]\n\n\nK-DIA vs C-DIA\n0.946 [0.937, 0.953]\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 3-2A. Agreement between devices (panel A).\n\n\n\n\n\n\n\n\n\nFigure 3-2B. Agreement between devices (panel B).\n\n\n\n\n\n\n\n\n\nFigure 3-3A. Agreement between devices (panel A).\n\n\n\n\n\n\n\n\n\nFigure 3-3B. Agreement between devices (panel B).\n\n\n\n\n（寫 5–8 行）",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Results</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-results.html#systematic-differences",
+    "href": "chapters/03-results.html#systematic-differences",
+    "title": "3  Results",
+    "section": "3.3 Systematic Differences",
+    "text": "3.3 Systematic Differences\n\n\n\n\n\n\nTable 3-3. Systematic differences and absolute differences.\n\n\n\n\n\n\n\n\n\nComparison\nMean of absolute differences\nMean differences\nSD\nP value\n\n\n\n\nOscillo-SYS – Auscl-SYS\n4.4\n0.6\n7.5\n\n\n\n\nKsens-SYS – Auscl-SYS\n2.0\n0.9\n5.0\n&lt; 0.001\n\n\nOscillo-DIA – Auscl-DIA\n5.4\n-4.2\n5.9\n\n\n\n\nKsens-DIA – Auscl-DIA\n2.3\n0.4\n4.1\n&lt; 0.001\n\n\n\n\n\n\n\n\n\n\n\n\n\nTable 3-4. Mixed-effects model for systolic BP difference.\n\n\nVariable\nOscillo-SBP (95% CI)\np\nKsens-SBP (95% CI)\np\n\n\n\n\nAge (per year)\n0.00 (-0.08, 0.09)\n0.91\n0.03 (-0.01, 0.07)\n0.16\n\n\nMale sex\n2.92 (1.00, 4.84)\n0.00\n-0.03 (-1.03, 0.98)\n0.96\n\n\nAf\n-1.72 (-3.99, 0.55)\n0.14\n-0.01 (-1.22, 1.20)\n0.99\n\n\nHR (per bpm)\n-0.02 (-0.07, 0.04)\n0.57\n0.00 (-0.03, 0.03)\n0.93\n\n\nHTN\n-1.14 (-2.88, 0.60)\n0.20\n0.42 (-0.48, 1.32)\n0.36\n\n\nDM\n0.94 (-0.59, 2.47)\n0.23\n-0.75 (-1.56, 0.06)\n0.07\n\n\nASCVD\n-0.44 (-2.03, 1.15)\n0.59\n0.16 (-0.66, 0.99)\n0.70\n\n\n\n\n\n\n\n\n\n\n\n\n\nTable 3-5. Mixed-effects model for diastolic BP difference.\n\n\nVariable\nOscillo-DBP (95% CI)\np\nKsens-DBP (95% CI)\np\n\n\n\n\nAge (per year)\n0.05 (-0.04, 0.14)\n0.27\n0.00 (-0.04, 0.05)\n0.87\n\n\nMale sex\n-0.77 (-2.88, 1.35)\n0.48\n-0.55 (-1.66, 0.57)\n0.34\n\n\nAf\n2.26 (-0.17, 4.69)\n0.07\n0.02 (-1.30, 1.33)\n0.98\n\n\nHR (per bpm)\n0.04 (-0.01, 0.09)\n0.13\n-0.03 (-0.06, 0.00)\n0.05\n\n\nHTN\n-0.36 (-2.28, 1.56)\n0.71\n0.65 (-0.35, 1.66)\n0.21\n\n\nDM\n0.98 (-0.58, 2.54)\n0.22\n0.25 (-0.64, 1.13)\n0.58\n\n\nASCVD\n-1.34 (-3.08, 0.41)\n0.13\n0.25 (-0.67, 1.17)\n0.59",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Results</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-results.html#subgroup-analyses",
+    "href": "chapters/03-results.html#subgroup-analyses",
+    "title": "3  Results",
+    "section": "3.4 Subgroup Analyses",
+    "text": "3.4 Subgroup Analyses\n\n\n\n\n\nFigure 3-4. Forest plot of subgroup analyses for systolic absolute differences.\n\n\n\n\n\n\n\n\n\nFigure 3-5. Forest plot of subgroup analyses for diastolic absolute differences.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Results</span>"
+    ]
+  },
+  {
+    "objectID": "chapters/03-results.html#omron-error-analysis",
+    "href": "chapters/03-results.html#omron-error-analysis",
+    "title": "3  Results",
+    "section": "3.5 Omron Error Analysis",
+    "text": "3.5 Omron Error Analysis\n\n\n\n\n\n\nTable 3-6. Omron error descriptive summary (attempt-level).\n\n\nVariable\nError\nNo error\nDifference (Error - No) [95% CI]\nSMD\n\n\n\n\nAge (years)\n69.18 ± 9.45\n67.05 ± 9.51\n2.13 (0.43, 3.83)\n0.22\n\n\nArm circumference (cm)\n25.93 ± 3.16\n27.07 ± 3.18\n-1.14 (-1.71, -0.57)\n-0.36\n\n\nBMI (kg/m^2)\n25.15 ± 4.11\n26.47 ± 3.96\n-1.31 (-2.05, -0.58)\n-0.33\n\n\nHeart rate (bpm)\n78.01 ± 18.05\n72.49 ± 14.13\n5.52 (2.37, 8.67)\n0.37\n\n\nMale sex\n104 (72.73%)\n589 (79.49%)\n-0.07 (-0.15, 0.01)\n-0.16\n\n\nHypertension\n101 (70.63%)\n532 (71.79%)\n-0.01 (-0.09, 0.07)\n-0.03\n\n\nDiabetes mellitus\n43 (30.07%)\n299 (40.35%)\n-0.10 (-0.19, -0.02)\n-0.22\n\n\nAtrial fibrillation\n57 (39.86%)\n95 (12.82%)\n0.27 (0.19, 0.35)\n0.65\n\n\nHeart failure\n31 (21.68%)\n106 (14.30%)\n0.07 (0.00, 0.15)\n0.19\n\n\nPeripheral artery disease\n15 (10.49%)\n21 (2.83%)\n0.08 (0.02, 0.13)\n0.31\n\n\nASCVD (any)\n67 (46.85%)\n431 (58.16%)\n-0.11 (-0.20, -0.02)\n-0.23\n\n\n\n\n\n\n\n\n\n\n\n\n\nTable 3-7. Omron error descriptive summary (patient-level).\n\n\nVariable\nError\nNo error\nDifference (Error - No) [95% CI]\nSMD\n\n\n\n\nAge (years)\n70.72 ± 8.92\n65.67 ± 9.68\n5.06 (2.31, 7.81)\n0.54\n\n\nArm circumference (cm)\n25.90 ± 3.24\n27.50 ± 3.06\n-1.60 (-2.55, -0.64)\n-0.51\n\n\nBMI (kg/m^2)\n25.08 ± 3.93\n27.05 ± 3.86\n-1.96 (-3.13, -0.79)\n-0.51\n\n\nHeart rate (bpm)\n76.02 ± 17.11\n72.15 ± 12.92\n3.86 (-0.90, 8.63)\n0.27\n\n\nMale sex\n48 (73.85%)\n108 (81.82%)\n-0.08 (-0.21, 0.05)\n-0.19\n\n\nHypertension\n44 (67.69%)\n98 (74.24%)\n-0.07 (-0.20, 0.07)\n-0.14\n\n\nDiabetes mellitus\n21 (32.31%)\n56 (42.42%)\n-0.10 (-0.24, 0.04)\n-0.21\n\n\nAtrial fibrillation\n22 (33.85%)\n10 (7.58%)\n0.26 (0.14, 0.39)\n0.69\n\n\nHeart failure\n14 (21.54%)\n17 (12.88%)\n0.09 (-0.03, 0.20)\n0.23\n\n\nPeripheral artery disease\n5 (7.69%)\n3 (2.27%)\n0.05 (-0.02, 0.12)\n0.25\n\n\nASCVD (any)\n35 (53.85%)\n75 (56.82%)\n-0.03 (-0.18, 0.12)\n-0.06\n\n\n\n\n\n\n\n\n\n\n\n\n\nTable 3-8. Mixed-effects logistic regression for Omron error (attempt-level).\n\n\nPredictor\nOR (95% CI)\np\n\n\n\n\nAtrial fibrillation (Yes vs No)\n13.35 (3.00-59.45)\n&lt;0.001\n\n\nAge (per 1 SD)\n1.31 (0.73-2.36)\n0.366\n\n\nHeart rate (per 1 SD)\n1.58 (0.97-2.55)\n0.064\n\n\nArm circumference (per 1 SD)\n0.64 (0.36-1.14)\n0.132\n\n\nMale (ref: Female)\n0.57 (0.16-2.08)\n0.397\n\n\nPeripheral artery disease (Yes vs No)\n6.37 (0.46-87.34)\n0.166\n\n\n\n\n\n\n\n\n\n\n\n\n\nTable 3-9. Logistic regression for Omron error (patient-level).\n\n\nPredictor\nOR (95% CI)\np\n\n\n\n\nAtrial fibrillation (Yes vs No)\n4.63 (1.91-11.24)\n&lt;0.001\n\n\nAge (per 1 SD)\n1.52 (1.04-2.22)\n0.029\n\n\nHeart rate (per 1 SD)\n1.33 (0.94-1.88)\n0.108\n\n\nArm circumference (per 1 SD)\n0.72 (0.50-1.02)\n0.064\n\n\nMale (ref: Female)\n0.62 (0.28-1.35)\n0.228",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Results</span>"
+    ]
+  }
+]

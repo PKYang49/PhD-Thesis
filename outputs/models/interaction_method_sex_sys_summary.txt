@@ -1,0 +1,68 @@
+
+> cat("Interaction model (SYS)\n")
+Interaction model (SYS)
+
+> cat("Formula:\n")
+Formula:
+
+> print(form)
+diff_method_sys ~ method * Sex + Age + arm + Af + HR_c + HTN + 
+    DM + ASCVD_any + PAD + (1 | ID)
+
+> cat("\nRows used (method-rows): ", nrow(df_fit), "\n")
+
+Rows used (method-rows):  1372 
+
+> cat("Unique participants (ID): ", n_distinct(df_fit$ID), "\n\n")
+Unique participants (ID):  178 
+
+
+> print(summary(m_int))
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Formula: form
+   Data: df_fit
+
+REML criterion at convergence: 8923.5
+
+Scaled residuals: 
+     Min       1Q   Median       3Q      Max 
+-13.2135  -0.3207  -0.0805   0.2798  10.0053 
+
+Random effects:
+ Groups   Name        Variance Std.Dev.
+ ID       (Intercept)  4.458   2.111   
+ Residual             35.962   5.997   
+Number of obs: 1372, groups:  ID, 178
+
+Fixed effects:
+               Estimate Std. Error         df t value Pr(>|t|)    
+(Intercept)  -3.781e+00  3.165e+00  1.708e+02  -1.195   0.2339    
+methodK       2.935e+00  7.219e-01  1.199e+03   4.065 5.11e-05 ***
+SexM          3.140e+00  7.258e-01  3.414e+02   4.326 2.00e-05 ***
+Age           2.168e-02  2.648e-02  1.687e+02   0.819   0.4141    
+arm           2.769e-02  7.792e-02  1.763e+02   0.355   0.7227    
+AfYes        -7.487e-01  7.189e-01  1.854e+02  -1.041   0.2991    
+HR_c         -3.505e-03  1.734e-02  2.357e+02  -0.202   0.8400    
+HTNYes       -3.417e-01  5.443e-01  1.627e+02  -0.628   0.5310    
+DMYes         1.663e-01  4.827e-01  1.828e+02   0.345   0.7308    
+ASCVD_anyYes  1.597e-03  5.029e-01  1.647e+02   0.003   0.9975    
+PADYes       -2.306e+00  1.349e+00  1.747e+02  -1.709   0.0892 .  
+methodK:SexM -3.258e+00  8.077e-01  1.199e+03  -4.033 5.85e-05 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+            (Intr) methdK SexM   Age    arm    AfYes  HR_c   HTNYes DMYes  ASCVD_ PADYes
+methodK     -0.114                                                                      
+SexM        -0.148  0.497                                                               
+Age         -0.740  0.000  0.050                                                        
+arm         -0.805  0.000 -0.089  0.292                                                 
+AfYes       -0.024  0.000 -0.036 -0.194  0.101                                          
+HR_c        -0.095  0.000 -0.102  0.171  0.056 -0.094                                   
+HTNYes      -0.057  0.000  0.119 -0.091 -0.088  0.209 -0.114                            
+DMYes        0.000  0.000 -0.004  0.004 -0.088  0.027 -0.215  0.000                     
+ASCVD_anyYs -0.060  0.000 -0.179 -0.091  0.041  0.173  0.114  0.174 -0.007              
+PADYes      -0.035  0.000 -0.018  0.014  0.071 -0.089 -0.064 -0.057 -0.081 -0.167       
+methodK:SxM  0.102 -0.894 -0.556  0.000  0.000  0.000  0.000  0.000  0.000  0.000  0.000
+
+> sink()

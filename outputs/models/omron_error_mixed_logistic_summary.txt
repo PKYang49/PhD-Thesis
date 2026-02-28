@@ -1,0 +1,71 @@
+
+> cat("Mixed-effects logistic regression for omron_error\n")
+Mixed-effects logistic regression for omron_error
+
+> cat("Sheet used:", sheet_pick, "\n")
+Sheet used: Device analysis 
+
+> cat("ID column:", id_col, "\n")
+ID column: ID 
+
+> cat("Outcome column:", omron_col, "\n")
+Outcome column: Omron error 
+
+> cat("K-HR column:", kh_col, "\n")
+K-HR column: K-HR 
+
+> cat("Rows used:", nrow(df_m), "\n")
+Rows used: 884 
+
+> cat("Unique ID:", n_distinct(df_m$ID), "\n\n")
+Unique ID: 197 
+
+
+> print(form)
+omron_error ~ Age_z + Sex + arm_z + K_HR_z + Af + PAD + (1 | 
+    ID)
+
+> cat("\n")
+
+
+> print(summary(m))
+Generalized linear mixed model fit by maximum likelihood (Laplace Approximation) ['glmerMod']
+ Family: binomial  ( logit )
+Formula: omron_error ~ Age_z + Sex + arm_z + K_HR_z + Af + PAD + (1 |      ID)
+   Data: df_m
+Control: glmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 2e+05))
+
+      AIC       BIC    logLik -2*log(L)  df.resid 
+    586.3     624.6    -285.2     570.3       876 
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-1.8535 -0.1463 -0.0938 -0.0664  3.1944 
+
+Random effects:
+ Groups Name        Variance Std.Dev.
+ ID     (Intercept) 8.631    2.938   
+Number of obs: 884, groups:  ID, 197
+
+Fixed effects:
+            Estimate Std. Error z value Pr(>|z|)    
+(Intercept)  -3.8407     0.7258  -5.292 1.21e-07 ***
+Age_z         0.2711     0.3001   0.903 0.366263    
+SexM         -0.5590     0.6600  -0.847 0.397049    
+arm_z        -0.4413     0.2931  -1.505 0.132236    
+K_HR_z        0.4555     0.2461   1.851 0.064147 .  
+AfYes         2.5915     0.7621   3.401 0.000672 ***
+PADYes        1.8516     1.3358   1.386 0.165723    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+       (Intr) Age_z  SexM   arm_z  K_HR_z AfYes 
+Age_z  -0.072                                   
+SexM   -0.642  0.020                            
+arm_z   0.112  0.291 -0.054                     
+K_HR_z -0.039  0.198 -0.015  0.001              
+AfYes  -0.334 -0.144 -0.096  0.024 -0.105       
+PADYes -0.177  0.012  0.017  0.062 -0.077 -0.008
+
+> sink()

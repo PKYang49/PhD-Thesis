@@ -1,0 +1,43 @@
+Model: O-SYS-C-SYS 
+Outcome: Y_OSYS_CSYS 
+Rows used: 686 
+Unique ID: 178 
+
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Formula: form
+   Data: d
+
+REML criterion at convergence: 4640.5
+
+Scaled residuals: 
+     Min       1Q   Median       3Q      Max 
+-11.2888  -0.3069  -0.0047   0.2896   9.1764 
+
+Random effects:
+ Groups   Name        Variance Std.Dev.
+ ID       (Intercept) 13.62    3.691   
+ Residual             41.59    6.449   
+Number of obs: 686, groups:  ID, 178
+
+Fixed effects:
+              Estimate Std. Error        df t value Pr(>|t|)   
+(Intercept)   -1.14577    3.00919 172.83434  -0.381  0.70385   
+Age            0.00471    0.04138 176.84453   0.114  0.90950   
+SexM           2.92223    0.98035 172.77738   2.981  0.00329 **
+AfYes         -1.71913    1.16002 190.35681  -1.482  0.14000   
+HR_c          -0.01577    0.02790 247.94790  -0.565  0.57249   
+HTNYes        -1.13829    0.88627 168.58835  -1.284  0.20078   
+DMYes          0.93933    0.78154 189.85539   1.202  0.23090   
+ASCVD_anyYes  -0.44149    0.80980 172.09752  -0.545  0.58633   
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+            (Intr) Age    SexM   AfYes  HR_c   HTNYes DMYes 
+Age         -0.907                                          
+SexM        -0.339  0.096                                   
+AfYes        0.103 -0.239 -0.035                            
+HR_c        -0.082  0.160 -0.117 -0.111                     
+HTNYes      -0.221 -0.068  0.133  0.216 -0.114              
+DMYes       -0.119  0.029 -0.015  0.030 -0.216 -0.011       
+ASCVD_anyYs -0.043 -0.108 -0.218  0.158  0.101  0.173 -0.016

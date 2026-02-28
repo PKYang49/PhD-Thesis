@@ -1,0 +1,5 @@
+"comparison","x","y","n","mean_abs_diff","mean_diff","sd_diff","p_wilcox"
+"O-SYS vs C-SYS","O-SYS","C-SYS",686,4.41,0.59,7.54,0.0047
+"K-SYS vs C-SYS","K-SYS","C-SYS",686,1.98,0.93,5.02,8.44e-07
+"O-DIA vs C-DIA","O-DIA","C-DIA",686,5.44,-4.23,5.94,3.6e-71
+"K-DIA vs C-DIA","K-DIA","C-DIA",686,2.28,0.41,4.11,0.000696

@@ -1,0 +1,430 @@
+# Results
+
+## Study Population
+
+```{r}
+library(readr)
+library(gt)
+
+table1_path_candidates <- c(
+  "outputs/tables/table 3-1.csv",
+  "../outputs/tables/table 3-1.csv"
+)
+table1_path <- table1_path_candidates[file.exists(table1_path_candidates)][1]
+if (is.na(table1_path)) {
+  stop(
+    "'table 3-1.csv' not found. Checked:\n",
+    paste(table1_path_candidates, collapse = "\n")
+  )
+}
+
+table1 <- read_csv(table1_path, show_col_types = FALSE, na = "NA")
+table1 <- table1 |>
+  dplyr::mutate(
+    dplyr::across(
+      where(is.character),
+      ~ gsub("\\+/-", "\u00B1", .x)
+    )
+  )
+
+label_mean_sd <- if (knitr::is_html_output()) {
+  html("mean&nbsp;&plusmn;&nbsp;SD<br>or n(%)")
+} else {
+  "mean +/- SD or n(%)"
+}
+
+table1_caption <- if (knitr::is_html_output()) {
+  md("**Table 3-1. Baseline characteristics of the study population.**")
+} else {
+  "Table 3-1. Baseline characteristics of the study population."
+}
+
+table1 |>
+  gt() |>
+  tab_caption(table1_caption) |>
+  cols_align(align = "left", columns = 1) |>
+  cols_align(align = "right", columns = 2) |>
+  cols_label(`mean +/- SD or n(%)` = label_mean_sd) |>
+  tab_style(
+    style = cell_text(weight = "bold"),
+    locations = cells_column_labels(everything())
+  ) |>
+  tab_style(
+    style = cell_text(style = "italic"),
+    locations = cells_body(
+      columns = Variable,
+      rows = Variable %in% c("Demographics", "Anthropometrics", "Comorbidities")
+    )
+  )
+```
+
+Table 3-1 summarizes the baseline characteristics of the study population. The mean age was 67.39 +/- 9.61 years, and 142 participants (79.8%) were male. The mean height, body weight, and body mass index were 164.15 +/- 8.05 cm, 71.43 +/- 13.52 kg, and 26.38 +/- 3.89 kg/m2, respectively. Hypertension was the most prevalent comorbidity (129, 72.5%), followed by coronary artery disease (90, 50.6%), diabetes mellitus (69, 38.8%), and a history of acute myocardial infarction (61, 34.3%). Heart failure and atrial fibrillation were present in 27 (15.2%) and 28 (15.7%) participants, whereas stroke (7, 3.9%) and peripheral arterial disease (6, 3.4%) were less common.
+
+```{r fig.cap="Figure 3-1. Study population flow and composition."}
+fig31_path_candidates <- c(
+  "output/figures/3-1.png",
+  "outputs/figures/3-1.png",
+  "../output/figures/3-1.png",
+  "../outputs/figures/3-1.png"
+)
+fig31_path <- fig31_path_candidates[file.exists(fig31_path_candidates)][1]
+if (is.na(fig31_path)) {
+  stop(
+    "'3-1.png' not found. Checked:\n",
+    paste(fig31_path_candidates, collapse = "\n")
+  )
+}
+knitr::include_graphics(fig31_path)
+```
+
+As shown in Figure 3-1, a total of 197 patients contributed 891 blood pressure measurement attempts during the study period. Seven attempts were excluded before device feasibility analysis because of human operation error (n = 3) or severe tremor (n = 4), leaving 884 attempts for feasibility evaluation. Among these, additional attempts were excluded due to Oscillo-BP measurement failure (n = 143), Ksens-BP acquisition error (n = 61), or concurrent failure of both devices (n = 6). The final analytic dataset therefore comprised 686 successful paired measurements from 178 patients.
+
+## Agreement Between Devices
+
+```{r}
+table2_path_candidates <- c(
+  "outputs/tables/table 3-2.csv",
+  "outputs/tables/table3-2.csv",
+  "outputs/tables/table3-2_ccc.csv",
+  "../outputs/tables/table 3-2.csv",
+  "../outputs/tables/table3-2.csv",
+  "../outputs/tables/table3-2_ccc.csv"
+)
+table2_path <- table2_path_candidates[file.exists(table2_path_candidates)][1]
+if (is.na(table2_path)) {
+  stop(
+    "'table 3-2.csv / table3-2.csv / table3-2_ccc.csv' not found. Checked:\n",
+    paste(table2_path_candidates, collapse = "\n")
+  )
+}
+
+table2 <- read_csv(table2_path, show_col_types = FALSE, na = "NA")
+table2_caption <- if (knitr::is_html_output()) {
+  md("**Table 3-2. Agreement metrics between devices.**")
+} else {
+  "Table 3-2. Agreement metrics between devices."
+}
+table2 |>
+  gt() |>
+  tab_caption(table2_caption) |>
+  tab_style(
+    style = cell_text(weight = "bold"),
+    locations = cells_column_labels(everything())
+  )
+```
+
+```{r fig.cap="Figure 3-2A. Agreement between devices (panel A)."}
+fig32a_path_candidates <- c(
+  "output/figures/3-2a.png",
+  "outputs/figures/3-2a.png",
+  "../output/figures/3-2a.png",
+  "../outputs/figures/3-2a.png"
+)
+fig32a_path <- fig32a_path_candidates[file.exists(fig32a_path_candidates)][1]
+if (is.na(fig32a_path)) {
+  stop(
+    "'3-2a.png' not found. Checked:\n",
+    paste(fig32a_path_candidates, collapse = "\n")
+  )
+}
+knitr::include_graphics(fig32a_path)
+```
+
+```{r fig.cap="Figure 3-2B. Agreement between devices (panel B)."}
+fig32b_path_candidates <- c(
+  "output/figures/3-2b.png",
+  "outputs/figures/3-2b.png",
+  "../output/figures/3-2b.png",
+  "../outputs/figures/3-2b.png"
+)
+fig32b_path <- fig32b_path_candidates[file.exists(fig32b_path_candidates)][1]
+if (is.na(fig32b_path)) {
+  stop(
+    "'3-2b.png' not found. Checked:\n",
+    paste(fig32b_path_candidates, collapse = "\n")
+  )
+}
+knitr::include_graphics(fig32b_path)
+```
+
+```{r fig.cap="Figure 3-3A. Agreement between devices (panel A)."}
+fig33a_path_candidates <- c(
+  "output/figures/3-3a.png",
+  "outputs/figures/3-3a.png",
+  "../output/figures/3-3a.png",
+  "../outputs/figures/3-3a.png"
+)
+fig33a_path <- fig33a_path_candidates[file.exists(fig33a_path_candidates)][1]
+if (is.na(fig33a_path)) {
+  stop(
+    "'3-3a.png' not found. Checked:\n",
+    paste(fig33a_path_candidates, collapse = "\n")
+  )
+}
+knitr::include_graphics(fig33a_path)
+```
+
+```{r fig.cap="Figure 3-3B. Agreement between devices (panel B)."}
+fig33b_path_candidates <- c(
+  "output/figures/3-3b.png",
+  "outputs/figures/3-3b.png",
+  "../output/figures/3-3b.png",
+  "../outputs/figures/3-3b.png"
+)
+fig33b_path <- fig33b_path_candidates[file.exists(fig33b_path_candidates)][1]
+if (is.na(fig33b_path)) {
+  stop(
+    "'3-3b.png' not found. Checked:\n",
+    paste(fig33b_path_candidates, collapse = "\n")
+  )
+}
+knitr::include_graphics(fig33b_path)
+```
+
+Table 3-2 shows high overall agreement between test devices and the auscultatory reference, with consistently higher concordance for Ksens-BP than for Oscillo-BP. For systolic blood pressure, the concordance correlation coefficient (CCC) was 0.957 (95% CI, 0.950 to 0.962) for K-SYS versus C-SYS, compared with 0.903 (95% CI, 0.888 to 0.916) for O-SYS versus C-SYS. A similar pattern was observed for diastolic blood pressure, with CCCs of 0.946 (95% CI, 0.937 to 0.953) for K-DIA versus C-DIA and 0.851 (95% CI, 0.831 to 0.869) for O-DIA versus C-DIA.
+
+Bland-Altman analyses (Figures 3-2A, 3-2B, 3-3A, and 3-3B) further supported these findings. For systolic pressure, Ksens-BP showed a small mean difference (0.93 mmHg) and narrower limits of agreement (approximately -8.91 to 10.76 mmHg) than Oscillo-BP (mean difference, 0.59 mmHg; limits of agreement, approximately -14.17 to 15.35 mmHg). For diastolic pressure, Ksens-BP again demonstrated a small bias (0.41 mmHg) with relatively tight limits of agreement (approximately -7.64 to 8.46 mmHg), whereas Oscillo-BP showed a larger negative bias (-4.23 mmHg) and wider limits (approximately -15.85 to 7.40 mmHg), indicating greater dispersion and systematic underestimation versus the reference method.
+## Systematic Differences
+
+```{r}
+table33_path_candidates <- c(
+  "outputs/tables/table3-3.csv",
+  "../outputs/tables/table3-3.csv"
+)
+table33_path <- table33_path_candidates[file.exists(table33_path_candidates)][1]
+if (is.na(table33_path)) {
+  stop(
+    "'table3-3.csv' not found. Checked:\n",
+    paste(table33_path_candidates, collapse = "\n")
+  )
+}
+table33 <- read_csv(table33_path, show_col_types = FALSE, na = "NA")
+table33_caption <- if (knitr::is_html_output()) {
+  md("**Table 3-3. Systematic differences and absolute differences.**")
+} else {
+  "Table 3-3. Systematic differences and absolute differences."
+}
+table33 |>
+  gt() |>
+  tab_caption(table33_caption) |>
+  cols_align(align = "left",  columns = 1) |>
+  cols_align(align = "right", columns = 2:5) |>
+  tab_style(
+    style = cell_text(weight = "bold"),
+    locations = cells_column_labels(everything())
+  ) |>
+  sub_missing(missing_text = "")
+```
+
+```{r}
+table34_path_candidates <- c(
+  "outputs/tables/table3-4_sbp_mixedmodel.csv",
+  "../outputs/tables/table3-4_sbp_mixedmodel.csv"
+)
+table34_path <- table34_path_candidates[file.exists(table34_path_candidates)][1]
+if (is.na(table34_path)) {
+  stop(
+    "'table3-4_sbp_mixedmodel.csv' not found. Checked:\n",
+    paste(table34_path_candidates, collapse = "\n")
+  )
+}
+table34 <- read_csv(table34_path, show_col_types = FALSE, na = "NA")
+names(table34)[3] <- "p_oscillo"
+names(table34)[5] <- "p_ksens"
+table34_caption <- if (knitr::is_html_output()) {
+  md("**Table 3-4. Mixed-effects model for systolic BP difference.**")
+} else {
+  "Table 3-4. Mixed-effects model for systolic BP difference."
+}
+table34 |>
+  gt() |>
+  tab_caption(table34_caption) |>
+  cols_label(
+    p_oscillo = "p",
+    p_ksens = "p"
+  ) |>
+  tab_style(
+    style = cell_text(weight = "bold"),
+    locations = cells_column_labels(everything())
+  )
+```
+
+```{r}
+table35_path_candidates <- c(
+  "outputs/tables/table3-5_dbp_mixedmodel.csv",
+  "../outputs/tables/table3-5_dbp_mixedmodel.csv"
+)
+table35_path <- table35_path_candidates[file.exists(table35_path_candidates)][1]
+if (is.na(table35_path)) {
+  stop(
+    "'table3-5_dbp_mixedmodel.csv' not found. Checked:\n",
+    paste(table35_path_candidates, collapse = "\n")
+  )
+}
+table35 <- read_csv(table35_path, show_col_types = FALSE, na = "NA")
+names(table35)[3] <- "p_oscillo"
+names(table35)[5] <- "p_ksens"
+table35_caption <- if (knitr::is_html_output()) {
+  md("**Table 3-5. Mixed-effects model for diastolic BP difference.**")
+} else {
+  "Table 3-5. Mixed-effects model for diastolic BP difference."
+}
+table35 |>
+  gt() |>
+  tab_caption(table35_caption) |>
+  cols_label(
+    p_oscillo = "p",
+    p_ksens = "p"
+  ) |>
+  tab_style(
+    style = cell_text(weight = "bold"),
+    locations = cells_column_labels(everything())
+  )
+```
+
+## Subgroup Analyses
+
+```{r fig.cap="Figure 3-4. Forest plot of subgroup analyses for systolic absolute differences."}
+fig34_path_candidates <- c(
+  "output/figures/3-4forest_SYS_absdiff_subgroups.png",
+  "outputs/figures/3-4forest_SYS_absdiff_subgroups.png",
+  "../output/figures/3-4forest_SYS_absdiff_subgroups.png",
+  "../outputs/figures/3-4forest_SYS_absdiff_subgroups.png"
+)
+fig34_path <- fig34_path_candidates[file.exists(fig34_path_candidates)][1]
+if (is.na(fig34_path)) {
+  stop(
+    "'3-4forest_SYS_absdiff_subgroups.png' not found. Checked:\n",
+    paste(fig34_path_candidates, collapse = "\n")
+  )
+}
+knitr::include_graphics(fig34_path)
+```
+
+```{r fig.cap="Figure 3-5. Forest plot of subgroup analyses for diastolic absolute differences."}
+fig35_path_candidates <- c(
+  "output/figures/3-5forest_DIA_absdiff_subgroups.png",
+  "outputs/figures/3-5forest_DIA_absdiff_subgroups.png",
+  "../output/figures/3-5forest_DIA_absdiff_subgroups.png",
+  "../outputs/figures/3-5forest_DIA_absdiff_subgroups.png"
+)
+fig35_path <- fig35_path_candidates[file.exists(fig35_path_candidates)][1]
+if (is.na(fig35_path)) {
+  stop(
+    "'3-5forest_DIA_absdiff_subgroups.png' not found. Checked:\n",
+    paste(fig35_path_candidates, collapse = "\n")
+  )
+}
+knitr::include_graphics(fig35_path)
+```
+
+## Omron Error Analysis
+
+```{r}
+table36_path_candidates <- c(
+  "outputs/tables/table3-6omron_error_descripitive_attempt.csv",
+  "../outputs/tables/table3-6omron_error_descripitive_attempt.csv"
+)
+table36_path <- table36_path_candidates[file.exists(table36_path_candidates)][1]
+if (is.na(table36_path)) {
+  stop(
+    "'table3-6omron_error_descripitive_attempt.csv' not found. Checked:\n",
+    paste(table36_path_candidates, collapse = "\n")
+  )
+}
+table36 <- read_csv(table36_path, show_col_types = FALSE, na = "NA")
+table36_caption <- if (knitr::is_html_output()) {
+  md("**Table 3-6. Omron error descriptive summary (attempt-level).**")
+} else {
+  "Table 3-6. Omron error descriptive summary (attempt-level)."
+}
+table36 |>
+  gt() |>
+  tab_caption(table36_caption) |>
+  tab_style(
+    style = cell_text(weight = "bold"),
+    locations = cells_column_labels(everything())
+  )
+```
+
+```{r}
+table37_path_candidates <- c(
+  "outputs/tables/table3-7omron_error_descripitive_patent.csv",
+  "../outputs/tables/table3-7omron_error_descripitive_patent.csv"
+)
+table37_path <- table37_path_candidates[file.exists(table37_path_candidates)][1]
+if (is.na(table37_path)) {
+  stop(
+    "'table3-7omron_error_descripitive_patent.csv' not found. Checked:\n",
+    paste(table37_path_candidates, collapse = "\n")
+  )
+}
+table37 <- read_csv(table37_path, show_col_types = FALSE, na = "NA")
+table37_caption <- if (knitr::is_html_output()) {
+  md("**Table 3-7. Omron error descriptive summary (patient-level).**")
+} else {
+  "Table 3-7. Omron error descriptive summary (patient-level)."
+}
+table37 |>
+  gt() |>
+  tab_caption(table37_caption) |>
+  tab_style(
+    style = cell_text(weight = "bold"),
+    locations = cells_column_labels(everything())
+  )
+```
+
+```{r}
+table38_path_candidates <- c(
+  "outputs/tables/table3-8omron_error_logistic_attempt.csv",
+  "../outputs/tables/table3-8omron_error_logistic_attempt.csv"
+)
+table38_path <- table38_path_candidates[file.exists(table38_path_candidates)][1]
+if (is.na(table38_path)) {
+  stop(
+    "'table3-8omron_error_logistic_attempt.csv' not found. Checked:\n",
+    paste(table38_path_candidates, collapse = "\n")
+  )
+}
+table38 <- read_csv(table38_path, show_col_types = FALSE, na = "NA")
+table38_caption <- if (knitr::is_html_output()) {
+  md("**Table 3-8. Mixed-effects logistic regression for Omron error (attempt-level).**")
+} else {
+  "Table 3-8. Mixed-effects logistic regression for Omron error (attempt-level)."
+}
+table38 |>
+  gt() |>
+  tab_caption(table38_caption) |>
+  tab_style(
+    style = cell_text(weight = "bold"),
+    locations = cells_column_labels(everything())
+  )
+```
+
+```{r}
+table39_path_candidates <- c(
+  "outputs/tables/table3-9omron_error_logistic_patient.csv",
+  "../outputs/tables/table3-9omron_error_logistic_patient.csv"
+)
+table39_path <- table39_path_candidates[file.exists(table39_path_candidates)][1]
+if (is.na(table39_path)) {
+  stop(
+    "'table3-9omron_error_logistic_patient.csv' not found. Checked:\n",
+    paste(table39_path_candidates, collapse = "\n")
+  )
+}
+table39 <- read_csv(table39_path, show_col_types = FALSE, na = "NA")
+table39_caption <- if (knitr::is_html_output()) {
+  md("**Table 3-9. Logistic regression for Omron error (patient-level).**")
+} else {
+  "Table 3-9. Logistic regression for Omron error (patient-level)."
+}
+table39 |>
+  gt() |>
+  tab_caption(table39_caption) |>
+  tab_style(
+    style = cell_text(weight = "bold"),
+    locations = cells_column_labels(everything())
+  )
+```
+

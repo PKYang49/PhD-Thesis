@@ -1,0 +1,78 @@
+Model tag:  DM 
+Formula:
+diff_method_sys ~ method * DM + Age + Sex + arm + Af + HTN + 
+    ASCVD_any + HR_c + (1 | ID)
+<environment: 0x0000029973d8a2f8>
+
+Rows used:  1372 
+Unique ID:  178 
+
+Linear mixed model fit by REML. t-tests use
+  Satterthwaite's method [lmerModLmerTest]
+Formula: form
+   Data: d
+
+REML criterion at convergence: 8937.4
+
+Scaled residuals: 
+     Min       1Q   Median       3Q      Max 
+-13.3259  -0.3444  -0.0694   0.2703  10.0767 
+
+Random effects:
+ Groups   Name        Variance Std.Dev.
+ ID       (Intercept)  4.535   2.130   
+ Residual             36.207   6.017   
+Number of obs: 1372, groups:  ID, 178
+
+Fixed effects:
+                Estimate Std. Error         df
+(Intercept)   -3.031e+00  3.168e+00  1.687e+02
+methodK        1.057e+00  4.133e-01  1.199e+03
+DMYes          1.048e+00  5.882e-01  3.855e+02
+Age            2.231e-02  2.664e-02  1.698e+02
+SexM           1.488e+00  6.065e-01  1.685e+02
+arm            3.711e-02  7.818e-02  1.769e+02
+AfYes         -8.575e-01  7.202e-01  1.863e+02
+HTNYes        -3.951e-01  5.466e-01  1.631e+02
+ASCVD_anyYes  -1.423e-01  4.988e-01  1.668e+02
+HR_c          -5.393e-03  1.740e-02  2.381e+02
+methodK:DMYes -1.896e+00  6.687e-01  1.199e+03
+              t value Pr(>|t|)   
+(Intercept)    -0.957  0.34003   
+methodK         2.557  0.01069 * 
+DMYes           1.781  0.07565 . 
+Age             0.837  0.40350   
+SexM            2.454  0.01514 * 
+arm             0.475  0.63563   
+AfYes          -1.191  0.23535   
+HTNYes         -0.723  0.47087   
+ASCVD_anyYes   -0.285  0.77579   
+HR_c           -0.310  0.75686   
+methodK:DMYes  -2.836  0.00465 **
+---
+Signif. codes:  
+0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+            (Intr) methdK DMYes  Age    SexM  
+methodK     -0.065                            
+DMYes       -0.025  0.351                     
+Age         -0.743  0.000  0.004              
+SexM        -0.112  0.000 -0.006  0.060       
+arm         -0.809  0.000 -0.068  0.292 -0.106
+AfYes       -0.028  0.000  0.017 -0.194 -0.046
+HTNYes      -0.060  0.000 -0.004 -0.091  0.142
+ASCVD_anyYs -0.067  0.000 -0.017 -0.090 -0.222
+HR_c        -0.098  0.000 -0.182  0.172 -0.124
+methdK:DMYs  0.040 -0.618 -0.568  0.000  0.000
+            arm    AfYes  HTNYes ASCVD_ HR_c  
+methodK                                       
+DMYes                                         
+Age                                           
+SexM                                          
+arm                                           
+AfYes        0.108                            
+HTNYes      -0.085  0.205                     
+ASCVD_anyYs  0.053  0.161  0.167              
+HR_c         0.061 -0.100 -0.118  0.104       
+methdK:DMYs  0.000  0.000  0.000  0.000  0.000

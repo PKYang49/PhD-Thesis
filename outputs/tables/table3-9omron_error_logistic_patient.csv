@@ -1,0 +1,6 @@
+"Predictor","OR (95% CI)","p"
+"Atrial fibrillation (Yes vs No)","4.63 (1.91-11.24)","<0.001"
+"Age (per 1 SD)","1.52 (1.04-2.22)","0.029"
+"Heart rate (per 1 SD)","1.33 (0.94-1.88)","0.108"
+"Arm circumference (per 1 SD)","0.72 (0.50-1.02)","0.064"
+"Male (ref: Female)","0.62 (0.28-1.35)","0.228"

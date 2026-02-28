@@ -1,0 +1,50 @@
+Outcome: K-DIA 
+Formula:
+`K-DIA` ~ Sex + Age + arm + Af + HR_c + HTN + DM + other_ascvd + 
+    PAD + (1 | ID)
+
+Rows used: 686 
+Unique participants (ID): 178 
+
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Formula: form
+   Data: d
+
+REML criterion at convergence: 4422.3
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-2.8368 -0.4458 -0.0115  0.4799  7.8646 
+
+Random effects:
+ Groups   Name        Variance Std.Dev.
+ ID       (Intercept) 115.0    10.726  
+ Residual              16.3     4.037  
+Number of obs: 686, groups:  ID, 178
+
+Fixed effects:
+                Estimate Std. Error        df t value Pr(>|t|)    
+(Intercept)     81.43104   10.90992 176.48589   7.464 3.69e-12 ***
+SexM             3.29593    2.14490 164.08274   1.537   0.1263    
+Age             -0.40497    0.09368 165.08035  -4.323 2.66e-05 ***
+arm              0.44322    0.25107 215.28670   1.765   0.0789 .  
+AfYes            2.72178    2.46253 168.77733   1.105   0.2706    
+HR_c             0.09297    0.03887 618.31806   2.392   0.0171 *  
+HTNYes          -0.40159    1.93723 164.15826  -0.207   0.8360    
+DMYes            2.82991    1.42294 288.80252   1.989   0.0477 *  
+other_ascvdYes  -0.99110    1.77394 164.44539  -0.559   0.5771    
+PADYes          -0.94374    4.62321 167.25362  -0.204   0.8385    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+            (Intr) SexM   Age    arm    AfYes  HR_c   HTNYes DMYes  othr_Y
+SexM        -0.140                                                        
+Age         -0.775  0.077                                                 
+arm         -0.805 -0.084  0.332                                          
+AfYes       -0.007 -0.067 -0.201  0.079                                   
+HR_c        -0.061 -0.079  0.112  0.033 -0.088                            
+HTNYes      -0.077  0.117 -0.069 -0.084  0.211 -0.076                     
+DMYes       -0.175 -0.040  0.015  0.195  0.067 -0.148 -0.024              
+othr_scvdYs -0.057 -0.224 -0.077  0.023  0.227  0.078  0.175  0.035       
+PADYes      -0.017 -0.007 -0.012  0.038 -0.082 -0.045 -0.007 -0.071 -0.061

@@ -1,0 +1,38 @@
+project:
+  type: book
+
+book:
+  title: "My PhD Thesis"
+  author: "Po-Kai Yang"
+  chapters:
+    - index.qmd
+    - chapters/01-intro.qmd
+    - chapters/02-methods.qmd
+    - chapters/03-results.qmd
+    - chapters/04-discussion.qmd
+    - chapters/05-conclusion.qmd
+
+execute:
+  echo: false
+  warning: false
+  message: false
+
+bibliography: ref/references.bib
+csl: ref/csl/american-medical-association.csl
+
+format:
+  html:
+    toc: true
+    number-sections: true
+  pdf:
+    documentclass: book
+    pdf-engine: xelatex
+    include-in-header:
+      text: |
+        \usepackage{xeCJK}
+        \setCJKmainfont{PingFang TC}
+    toc: true
+    number-sections: true
+  docx:
+    toc: true
+    number-sections: true

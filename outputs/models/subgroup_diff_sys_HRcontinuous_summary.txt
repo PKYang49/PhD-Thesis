@@ -1,0 +1,47 @@
+
+> print(summary(m_hr))
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Formula: Y_diff_sys ~ HR_c + Age + Sex + arm + Af + HTN + DM + other_ascvd +  
+    PAD + (1 | ID)
+   Data: d_hr
+
+REML criterion at convergence: 4301
+
+Scaled residuals: 
+     Min       1Q   Median       3Q      Max 
+-14.1012  -0.3385   0.0262   0.3922   2.6940 
+
+Random effects:
+ Groups   Name        Variance Std.Dev.
+ ID       (Intercept) 17.77    4.215   
+ Residual             21.85    4.675   
+Number of obs: 686, groups:  ID, 178
+
+Fixed effects:
+                Estimate Std. Error        df t value Pr(>|t|)   
+(Intercept)     -4.12207    5.01008 174.73169  -0.823  0.41177   
+HR_c            -0.01660    0.02574 283.92664  -0.645  0.51931   
+Age             -0.01301    0.04220 173.29485  -0.308  0.75816   
+SexM             2.67262    0.96353 172.29153   2.774  0.00615 **
+arm              0.12628    0.12270 188.58249   1.029  0.30470   
+AfYes           -1.31475    1.13494 187.82851  -1.158  0.24816   
+HTNYes          -1.52286    0.87078 172.06704  -1.749  0.08210 . 
+DMYes            1.78216    0.75223 205.48343   2.369  0.01875 * 
+other_ascvdYes  -0.33579    0.79828 172.57711  -0.421  0.67454   
+PADYes          -4.39391    2.10872 180.38276  -2.084  0.03860 * 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+            (Intr) HR_c   Age    SexM   arm    AfYes  HTNYes DMYes  othr_Y
+HR_c        -0.089                                                        
+Age         -0.751  0.161                                                 
+SexM        -0.119 -0.116  0.064                                          
+arm         -0.810  0.052  0.302 -0.097                                   
+AfYes       -0.018 -0.104 -0.203 -0.056  0.092                            
+HTNYes      -0.062 -0.111 -0.085  0.132 -0.087  0.214                     
+DMYes       -0.022 -0.202  0.002 -0.010 -0.056  0.038  0.000              
+othr_scvdYs -0.054  0.108 -0.082 -0.225  0.024  0.215  0.175  0.017       
+PADYes      -0.036 -0.056 -0.003 -0.029  0.069 -0.073 -0.026 -0.086 -0.068
+
+> sink()

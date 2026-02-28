@@ -1,0 +1,20 @@
+# R / Posit
+.Rproj.user
+.Rhistory
+.RData
+
+# Quarto output
+_site/
+_book/
+_quarto/
+*.log
+
+# caches / temp
+output/
+cache/
+tmp/
+
+# data (建議先不進 Git)
+data/
+*.feather
+*.parquet

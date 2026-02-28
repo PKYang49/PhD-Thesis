@@ -1,0 +1,52 @@
+Patient-level logistic regression for any Omron error
+Sheet used: Device analysis 
+ID column: ID 
+Omron error column: Omron error 
+HR column: K-HR 
+omron_nonempty_is_one: TRUE 
+af_nonempty_is_one: TRUE 
+N patient before drop_na: 197 
+N patient: 197 
+Missing by variable before drop_na:
+           variable n_missing
+1 patient_any_error         0
+2               Age         0
+3               Sex         0
+4               arm         0
+5                HR         0
+6                Af         0
+N event (patient_any_error=1): 65 
+Outcome distribution (patient_any_error):
+
+  0   1 
+132  65 
+
+Formula: patient_any_error ~ Af + HR_z + arm_z + Age_z + Sex 
+
+== Standard logistic (glm) ==
+
+Call:
+glm(formula = form, family = binomial(link = "logit"), data = df_pt)
+
+Coefficients:
+            Estimate Std. Error z value Pr(>|z|)    
+(Intercept)  -0.6763     0.3526  -1.918 0.055155 .  
+AfYes         1.5328     0.4525   3.387 0.000706 ***
+HR_z          0.2847     0.1771   1.607 0.107972    
+arm_z        -0.3352     0.1808  -1.853 0.063840 .  
+Age_z         0.4192     0.1920   2.184 0.028954 *  
+SexM         -0.4824     0.4002  -1.205 0.228116    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 249.85  on 196  degrees of freedom
+Residual deviance: 213.73  on 191  degrees of freedom
+AIC: 225.73
+
+Number of Fisher Scoring iterations: 4
+
+
+logistf package not installed; Firth logistic skipped.
+

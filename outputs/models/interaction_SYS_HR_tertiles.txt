@@ -1,0 +1,72 @@
+Model tag:  HR_tertiles 
+Formula:
+diff_method_sys ~ method * HR_group + Age + Sex + arm + Af + 
+    HTN + DM + ASCVD_any + (1 | ID)
+<environment: 0x00000299709dcb88>
+
+Rows used:  1372 
+Unique ID:  178 
+
+Linear mixed model fit by REML. t-tests use
+  Satterthwaite's method [lmerModLmerTest]
+Formula: form
+   Data: d
+
+REML criterion at convergence: 8933.5
+
+Scaled residuals: 
+     Min       1Q   Median       3Q      Max 
+-13.2719  -0.3324  -0.0790   0.2849  10.0704 
+
+Random effects:
+ Groups   Name        Variance Std.Dev.
+ ID       (Intercept)  4.557   2.135   
+ Residual             36.394   6.033   
+Number of obs: 1372, groups:  ID, 178
+
+Fixed effects:
+                        Estimate Std. Error
+(Intercept)             -2.23857    3.24274
+methodK                 -0.19685    0.53532
+HR_groupHR_T2           -0.91229    0.66425
+HR_groupHR_T3           -0.36095    0.70519
+Age                      0.02286    0.02681
+SexM                     1.45940    0.61516
+arm                      0.03674    0.07886
+AfYes                   -0.92109    0.73521
+HTNYes                  -0.42099    0.55188
+DMYes                    0.08521    0.49643
+ASCVD_anyYes            -0.14650    0.49929
+methodK:HR_groupHR_T2    1.31313    0.79065
+methodK:HR_groupHR_T3    0.37197    0.78867
+                              df t value
+(Intercept)            174.41982  -0.690
+methodK               1197.84720  -0.368
+HR_groupHR_T2          626.55542  -1.373
+HR_groupHR_T3          450.29007  -0.512
+Age                    171.44831   0.853
+SexM                   170.56577   2.372
+arm                    178.26232   0.466
+AfYes                  190.47765  -1.253
+HTNYes                 163.53534  -0.763
+DMYes                  185.06657   0.172
+ASCVD_anyYes           166.34710  -0.293
+methodK:HR_groupHR_T2 1197.84720   1.661
+methodK:HR_groupHR_T3 1197.84720   0.472
+                      Pr(>|t|)  
+(Intercept)             0.4909  
+methodK                 0.7131  
+HR_groupHR_T2           0.1701  
+HR_groupHR_T3           0.6090  
+Age                     0.3950  
+SexM                    0.0188 *
+arm                     0.6419  
+AfYes                   0.2118  
+HTNYes                  0.4467  
+DMYes                   0.8639  
+ASCVD_anyYes            0.7696  
+methodK:HR_groupHR_T2   0.0970 .
+methodK:HR_groupHR_T3   0.6373  
+---
+Signif. codes:  
+0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1

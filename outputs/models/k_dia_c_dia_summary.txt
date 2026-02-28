@@ -1,0 +1,43 @@
+Model: K-DIA-C-DIA 
+Outcome: Y_KDIA_CDIA 
+Rows used: 686 
+Unique ID: 178 
+
+Linear mixed model fit by REML. t-tests use Satterthwaite's method ['lmerModLmerTest']
+Formula: form
+   Data: d
+
+REML criterion at convergence: 3813.9
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-4.5325 -0.3449  0.0073  0.3264 10.1460 
+
+Random effects:
+ Groups   Name        Variance Std.Dev.
+ ID       (Intercept)  5.151   2.270   
+ Residual             11.788   3.433   
+Number of obs: 686, groups:  ID, 178
+
+Fixed effects:
+               Estimate Std. Error         df t value Pr(>|t|)  
+(Intercept)   -0.159956   1.743410 168.558961  -0.092   0.9270  
+Age            0.003862   0.023949 172.272326   0.161   0.8721  
+SexM          -0.547754   0.567967 168.679643  -0.964   0.3362  
+AfYes          0.015335   0.669349 185.586040   0.023   0.9817  
+HR_c          -0.030721   0.015919 251.257398  -1.930   0.0548 .
+HTNYes         0.653165   0.513938 165.535727   1.271   0.2055  
+DMYes          0.247652   0.450841 188.660216   0.549   0.5834  
+ASCVD_anyYes   0.251291   0.469209 168.518049   0.536   0.5930  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+            (Intr) Age    SexM   AfYes  HR_c   HTNYes DMYes 
+Age         -0.906                                          
+SexM        -0.339  0.097                                   
+AfYes        0.104 -0.241 -0.036                            
+HR_c        -0.080  0.158 -0.116 -0.115                     
+HTNYes      -0.223 -0.067  0.131  0.217 -0.113              
+DMYes       -0.117  0.027 -0.014  0.031 -0.215 -0.011       
+ASCVD_anyYs -0.045 -0.107 -0.218  0.160  0.100  0.173 -0.015

@@ -1,0 +1,5 @@
+"Comparison","Mean of absolute differences","Mean differences","SD","P value"
+"Oscillo-SYS – Auscl-SYS",4.4,0.6,7.5,NA
+"Ksens-SYS – Auscl-SYS",2,0.9,5,"< 0.001"
+"Oscillo-DIA – Auscl-DIA",5.4,-4.2,5.9,NA
+"Ksens-DIA – Auscl-DIA",2.3,0.4,4.1,"< 0.001"
