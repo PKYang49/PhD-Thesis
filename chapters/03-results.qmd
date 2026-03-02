@@ -125,7 +125,7 @@ table2 |>
 
 Table 3-2 demonstrates strong agreement between each index device and the auscultatory reference, with consistently higher concordance for Ksens-BP than for Oscillo-BP. For systolic blood pressure, the concordance correlation coefficient (CCC) was 0.957 (95% CI, 0.950-0.962) for K-SYS versus C-SYS and 0.903 (95% CI, 0.888-0.916) for O-SYS versus C-SYS. A similar pattern was observed for diastolic blood pressure, with CCC values of 0.946 (95% CI, 0.937-0.953) for K-DIA versus C-DIA and 0.851 (95% CI, 0.831-0.869) for O-DIA versus C-DIA.
 
-```{r fig.cap="Figure 3-2A. Bland-Altman plot for systolic BP: Oscillo-BP versus auscultatory reference."}
+```{r fig.cap="Figure 3-2A. Bland-Altman plot for systolic BP: Oscillo-BP versus auscultatory reference.", out.width="85%"}
 fig32a_path_candidates <- c(
   "output/figures/3-2a.png",
   "outputs/figures/3-2a.png",
@@ -142,7 +142,7 @@ if (is.na(fig32a_path)) {
 knitr::include_graphics(fig32a_path)
 ```
 
-```{r fig.cap="Figure 3-2B. Bland-Altman plot for systolic BP: Ksens-BP versus auscultatory reference."}
+```{r fig.cap="Figure 3-2B. Bland-Altman plot for systolic BP: Ksens-BP versus auscultatory reference.", out.width="85%"}
 fig32b_path_candidates <- c(
   "output/figures/3-2b.png",
   "outputs/figures/3-2b.png",
@@ -159,7 +159,7 @@ if (is.na(fig32b_path)) {
 knitr::include_graphics(fig32b_path)
 ```
 
-```{r fig.cap="Figure 3-3A. Bland-Altman plot for diastolic BP: Oscillo-BP versus auscultatory reference."}
+```{r fig.cap="Figure 3-3A. Bland-Altman plot for diastolic BP: Oscillo-BP versus auscultatory reference.", out.width="85%"}
 fig33a_path_candidates <- c(
   "output/figures/3-3a.png",
   "outputs/figures/3-3a.png",
@@ -176,7 +176,7 @@ if (is.na(fig33a_path)) {
 knitr::include_graphics(fig33a_path)
 ```
 
-```{r fig.cap="Figure 3-3B. Bland-Altman plot for diastolic BP: Ksens-BP versus auscultatory reference."}
+```{r fig.cap="Figure 3-3B. Bland-Altman plot for diastolic BP: Ksens-BP versus auscultatory reference.", out.width="85%"}
 fig33b_path_candidates <- c(
   "output/figures/3-3b.png",
   "outputs/figures/3-3b.png",
@@ -302,7 +302,7 @@ For diastolic differences (Table 3-5), none of the prespecified covariates were 
 
 ## Subgroup Analyses
 
-```{r fig.cap="Figure 3-4. Forest plot of subgroup analyses for systolic absolute differences."}
+```{r fig.cap="Figure 3-4. Forest plot of subgroup analyses for systolic absolute differences.", out.width="110%"}
 fig34_path_candidates <- c(
   "output/figures/3-4forest_SYS_absdiff_subgroups.png",
   "outputs/figures/3-4forest_SYS_absdiff_subgroups.png",
@@ -319,7 +319,7 @@ if (is.na(fig34_path)) {
 knitr::include_graphics(fig34_path)
 ```
 
-```{r fig.cap="Figure 3-5. Forest plot of subgroup analyses for diastolic absolute differences."}
+```{r fig.cap="Figure 3-5. Forest plot of subgroup analyses for diastolic absolute differences.", out.width="110%"}
 fig35_path_candidates <- c(
   "output/figures/3-5forest_DIA_absdiff_subgroups.png",
   "outputs/figures/3-5forest_DIA_absdiff_subgroups.png",

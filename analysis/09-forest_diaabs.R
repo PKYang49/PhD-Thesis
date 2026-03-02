@@ -162,20 +162,27 @@ df <- df %>%
       TRUE ~ level_disp
     ),
     p_txt = ifelse(show_p,
-      ifelse(is.na(p_int), "", sprintf("%.3f", p_int)),
-      ""
-    )
+                   ifelse(is.na(p_int), "",
+                          ifelse(p_int < 0.001, "< 0.001", sprintf("%.3f", p_int))),
+                   ""),
+    ci_txt = ifelse(is.na(estimate), "",
+                    paste0(
+                      ifelse(abs(estimate) >= 10, sprintf("%.1f", estimate), sprintf("%.2f", estimate)),
+                      " (",
+                      ifelse(abs(lower)    >= 10, sprintf("%.1f", lower),    sprintf("%.2f", lower)),
+                      ", ",
+                      ifelse(abs(upper)    >= 10, sprintf("%.1f", upper),    sprintf("%.2f", upper)),
+                      ")"
+                    ))
   )
 
 # ------------------------------------------------------------
 # 6) Header row
 # ------------------------------------------------------------
 header <- tibble(
-  y = max(df$y) + 1.25,
-  mean_txt = "mean\ndifference",
-  low_txt  = "95% CI Low",
-  high_txt = "95% CI high",
-  p_txt    = "p for interaction"
+  y      = max(df$y) + 1.65,
+  ci_txt = "Mean Differences\n(95% CI)",
+  p_txt  = "p for interaction"
 )
 
 # ------------------------------------------------------------
@@ -187,14 +194,10 @@ x_lim <- c(-10, 10)
 # 8) Left table panel
 # ------------------------------------------------------------
 left_tbl <- ggplot() +
-  geom_text(data = df, aes(x = 0,    y = y, label = level_disp_plot), hjust = 0, size = 6) +
-  geom_text(data = df, aes(x = 1.05, y = y, label = mean_txt),   hjust = 1, size = 6) +
-  geom_text(data = df, aes(x = 1.60, y = y, label = low_txt),    hjust = 1, size = 6) +
-  geom_text(data = df, aes(x = 2.15, y = y, label = high_txt),   hjust = 1, size = 6) +
-  geom_text(data = header, aes(x = 1.05, y = y, label = mean_txt), hjust = 1, fontface = "bold", size = 5) +
-  geom_text(data = header, aes(x = 1.60, y = y, label = low_txt),  hjust = 1, fontface = "bold", size = 5) +
-  geom_text(data = header, aes(x = 2.15, y = y, label = high_txt), hjust = 1, fontface = "bold", size = 5) +
-  coord_cartesian(xlim = c(-0.05, 2.25), ylim = c(0.5, max(df$y) + 2.0), clip = "off") +
+  geom_text(data = df,     aes(x = 0,   y = y, label = level_disp_plot), hjust = 0,   size = 8) +
+  geom_text(data = df,     aes(x = 0.8, y = y, label = ci_txt),           hjust = 0,   size = 8) +
+  geom_text(data = header, aes(x = 1.1, y = y, label = ci_txt),           hjust = 0.5, fontface = "bold", size = 7) +
+  coord_cartesian(xlim = c(-0.05, 1.6), ylim = c(0.5, max(df$y) + 2.4), clip = "off") +
   theme_void() +
   theme(plot.margin = margin(10, 0, 10, 10))
 
@@ -210,21 +213,19 @@ forest <- ggplot(df_forest, aes(x = estimate, y = y)) +
   scale_x_continuous(breaks = seq(-10, 10, by = 2)) +
   labs(title = "Forest plot", x = NULL, y = NULL) +
   annotate("text",
-    x = -4.5, y = max(df$y) + 1.35,
-    label = "Favor Oscillo-DBP", size = 6, hjust = 0.5
-  ) +
+           x = -9.5, y = max(df$y) + 1.65,
+           label = "Favor Oscillo-DBP", size = 8, hjust = 0) +
   annotate("text",
-    x = 4.5, y = max(df$y) + 1.35,
-    label = "Favor Ksens-DBP", size = 6, hjust = 0.5
-  ) +
-  coord_cartesian(xlim = x_lim, ylim = c(0.5, max(df$y) + 2.0), clip = "off") +
-  theme_minimal(base_size = 14) +
+           x =  9.5, y = max(df$y) + 1.65,
+           label = "Favor Ksens-DBP", size = 8, hjust = 1) +
+  coord_cartesian(xlim = x_lim, ylim = c(0.5, max(df$y) + 2.4), clip = "off") +
+  theme_minimal(base_size = 16) +
   theme(
     axis.text.y = element_blank(),
     axis.ticks.y = element_blank(),
     panel.grid.major.y = element_blank(),
     panel.grid.minor = element_blank(),
-    plot.title = element_text(hjust = 0.5, size = 24),
+    plot.title = element_text(hjust = 0.5, size = 26),
     plot.margin = margin(10, 0, 10, 0)
   )
 
@@ -232,18 +233,18 @@ forest <- ggplot(df_forest, aes(x = estimate, y = y)) +
 # 10) Right p-value panel
 # ------------------------------------------------------------
 right_p <- ggplot() +
-  geom_text(data = df, aes(x = 1, y = y, label = p_txt), hjust = 1, size = 6) +
-  geom_text(data = header, aes(x = 1, y = y, label = p_txt), hjust = 1, fontface = "bold", size = 6) +
-  coord_cartesian(xlim = c(0, 1), ylim = c(0.5, max(df$y) + 2.0), clip = "off") +
+  geom_text(data = df, aes(x = 1, y = y, label = p_txt), hjust = 1, size = 8) +
+  geom_text(data = header, aes(x = 1, y = y, label = p_txt), hjust = 1, fontface = "bold", size = 8) +
+  coord_cartesian(xlim = c(0, 1), ylim = c(0.5, max(df$y) + 2.4), clip = "off") +
   theme_void() +
   theme(plot.margin = margin(10, 10, 10, 0))
 
 # ------------------------------------------------------------
 # 11) Combine and save
 # ------------------------------------------------------------
-p <- left_tbl + forest + right_p + plot_layout(widths = c(1.35, 1.70, 0.60))
+p <- left_tbl + forest + right_p + plot_layout(widths = c(1.40, 1.75, 0.60))
 
 dir.create("outputs/figures", showWarnings = FALSE, recursive = TRUE)
-ggsave("outputs/figures/forest_DIA_diff_subgroups.png", p, width = 16, height = 8, dpi = 300)
+ggsave("outputs/figures/3-5forest_DIA_absdiff_subgroups.png", p, width = 16, height = 8, dpi = 300)
 
 p
