@@ -21,3 +21,9 @@ data/
 
 /.quarto/
 **/*.quarto_ipynb
+
+# ref: 只追蹤 references.bib 和 csl/
+ref/*
+!ref/references.bib
+!ref/csl/
+!ref/csl/**
