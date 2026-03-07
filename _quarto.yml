@@ -29,10 +29,22 @@ format:
   pdf:
     documentclass: book
     pdf-engine: xelatex
+    fontsize: 12pt
     include-in-header:
       text: |
+        \usepackage{fontspec}
         \usepackage{xeCJK}
-        \setCJKmainfont{PingFang TC}
+        \usepackage{setspace}
+        \usepackage{titlesec}
+        \setmainfont{Calibri}
+        \setCJKmainfont{Microsoft JhengHei}
+        \setstretch{1.5}
+        \titleformat{\chapter}[display]
+          {\bfseries\fontsize{16}{24}\selectfont}
+          {\chaptername\ \thechapter}{12pt}{}
+        \titleformat{\section}
+          {\bfseries\fontsize{14}{21}\selectfont}
+          {\thesection}{1em}{}
     toc: true
     number-sections: true
   docx:
