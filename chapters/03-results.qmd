@@ -77,7 +77,7 @@ table1 |>
   )
 ```
 
-Table 3-1 summarizes the baseline characteristics of the enrolled cohort. The mean age was 67.39 +/- 9.61 years, and 142 participants (79.8%) were male. The mean height, body weight, and body mass index were 164.15 +/- 8.05 cm, 71.43 +/- 13.52 kg, and 26.38 +/- 3.89 kg/m2, respectively. Hypertension was the most prevalent comorbidity (129, 72.5%), followed by coronary artery disease (90, 50.6%), diabetes mellitus (69, 38.8%), and a history of acute myocardial infarction (61, 34.3%). Heart failure and atrial fibrillation were present in 27 (15.2%) and 28 (15.7%) participants, whereas stroke (7, 3.9%) and peripheral arterial disease (6, 3.4%) were less common.
+Table 3-1 summarizes the baseline characteristics of the enrolled cohort. The mean age was 67.39 +/- 9.61 years, and 142 participants (79.8%) were male. The mean height, body weight, and body mass index were 164.15 +/- 8.05 cm, 71.43 +/- 13.52 kg, and 26.38 +/- 3.89 kg/m2, respectively. Hypertension was the most prevalent comorbidity (129, 72.5%), followed by CAD (90, 50.6%), diabetes mellitus (69, 38.8%), and a history of acute myocardial infarction (61, 34.3%). Heart failure and atrial fibrillation were present in 27 (15.2%) and 28 (15.7%) participants, whereas stroke (7, 3.9%) and peripheral arterial disease (6, 3.4%) were less common.
 
 ## Agreement and Systematic Differences Between Devices
 
@@ -123,7 +123,7 @@ table2 |>
   sub_missing(missing_text = "")
 ```
 
-Table 3-2 demonstrates strong agreement between each index device and the auscultatory reference, with consistently higher concordance for Ksens-BP than for Oscillo-BP. For systolic blood pressure, the concordance correlation coefficient (CCC) was 0.957 (95% CI, 0.950-0.962) for K-SYS versus C-SYS and 0.903 (95% CI, 0.888-0.916) for O-SYS versus C-SYS. A similar pattern was observed for diastolic blood pressure, with CCC values of 0.946 (95% CI, 0.937-0.953) for K-DIA versus C-DIA and 0.851 (95% CI, 0.831-0.869) for O-DIA versus C-DIA.
+Table 3-2 demonstrates strong agreement between each index device and the auscultatory reference, with consistently higher concordance for Ksens-BP than for Oscillo-BP. For systolic blood pressure, the CCC was 0.957 (95% CI, 0.950-0.962) for K-SYS versus C-SYS and 0.903 (95% CI, 0.888-0.916) for O-SYS versus C-SYS. A similar pattern was observed for diastolic blood pressure, with CCC values of 0.946 (95% CI, 0.937-0.953) for K-DIA versus C-DIA and 0.851 (95% CI, 0.831-0.869) for O-DIA versus C-DIA.
 
 ```{r fig.cap="Figure 3-2A. Bland-Altman plot for systolic BP: Oscillo-BP versus auscultatory reference.", out.width="85%"}
 fig32a_path_candidates <- c(
@@ -454,4 +454,4 @@ table39 |>
 
 
 
-Multivariable regression analyses (Tables 3-8 and 3-9) identified atrial fibrillation as the most robust independent correlate of Omron error. In the mixed-effects attempt-level model, atrial fibrillation was associated with markedly increased odds of error (OR, 13.35; 95% CI, 3.00-59.45; p < 0.001), while age, heart rate, arm circumference, sex, and PAD were not statistically significant after adjustment. In the patient-level logistic model, atrial fibrillation remained strongly associated with error (OR, 4.63; 95% CI, 1.91-11.24; p < 0.001), and older age also emerged as an independent predictor (OR per 1 SD, 1.52; 95% CI, 1.04-2.22; p = 0.029). Smaller arm circumference showed a borderline inverse association (OR per 1 SD, 0.72; 95% CI, 0.50-1.02; p = 0.064), and heart rate remained directionally positive but non-significant.
+Multivariable regression analyses (Tables 3-8 and 3-9) identified atrial fibrillation as the most robust independent correlate of Omron error. In the mixed-effects attempt-level model, atrial fibrillation was associated with markedly increased odds of error (odds ratio [OR], 13.35; 95% CI, 3.00-59.45; p < 0.001), while age, heart rate, arm circumference, sex, and PAD were not statistically significant after adjustment. In the patient-level logistic model, atrial fibrillation remained strongly associated with error (OR, 4.63; 95% CI, 1.91-11.24; p < 0.001), and older age also emerged as an independent predictor (OR per 1 SD, 1.52; 95% CI, 1.04-2.22; p = 0.029). Smaller arm circumference showed a borderline inverse association (OR per 1 SD, 0.72; 95% CI, 0.50-1.02; p = 0.064), and heart rate remained directionally positive but non-significant.

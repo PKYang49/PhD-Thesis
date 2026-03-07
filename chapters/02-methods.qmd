@@ -16,7 +16,7 @@ Participants were recruited from the cardiovascular outpatient department of Nat
 - Myocardial infarction (MI)
 - Coronary artery disease (CAD) confirmed by coronary angiography or computed tomography with >= 50% stenosis
 - Peripheral artery disease (PAD) confirmed by angiography, computed tomography, magnetic resonance imaging, or Doppler ultrasound with >= 50% stenosis
-- Atrial fibrillation (AF)
+- Atrial fibrillation
 - Heart failure (HF) with left ventricular ejection fraction < 50% or prior hospitalization for pulmonary edema due to HF
 
 Exclusion criteria included upper arm injury or surgery preventing cuff placement, or the presence of an arteriovenous fistula/graft for dialysis.
@@ -142,7 +142,7 @@ knitr::include_graphics(fig24_path)
 
 All analyses were performed in R (Version 4.5.2) (R Foundation for Statistical Computing, Vienna, Austria). Continuous variables are presented as mean +/- SD and categorical variables as n (%).
 
-Agreement between devices and the auscultatory reference was evaluated using Lin's concordance correlation coefficient (CCC) with 95% confidence intervals and Bland-Altman analysis (mean bias and 95% limits of agreement). Method differences were summarized by mean difference, SD, and mean absolute difference, and absolute errors were compared using paired Wilcoxon signed-rank tests.
+Agreement between devices and the auscultatory reference was evaluated using Lin's CCC with 95% confidence intervals and Bland-Altman analysis (mean bias and 95% limits of agreement). Method differences were summarized by mean difference, SD, and mean absolute difference, and absolute errors were compared using paired Wilcoxon signed-rank tests.
 
 Factors associated with measurement differences were assessed using linear mixed-effects models with participant-level random intercepts. Subgroup analyses were also performed using mixed-effects models with estimated marginal means.
 
