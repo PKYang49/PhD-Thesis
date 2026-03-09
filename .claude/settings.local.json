@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(quarto render --to pdf --output-dir _book2)",
+      "Bash(pdftotext \"_book2/My-PhD-Thesis.pdf\" -)"
+    ]
+  }
+}

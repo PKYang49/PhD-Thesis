@@ -6,6 +6,7 @@ book:
   author: "Po-Kai Yang"
   chapters:
     - index.qmd
+    - abstract-en.qmd
     - chapters/01-intro.qmd
     - chapters/02-methods.qmd
     - chapters/03-results.qmd
@@ -36,24 +37,19 @@ format:
       - right=2.5cm
       - top=3cm
       - bottom=2.5cm
+    fig-pos: "H"
+    tbl-pos: "H"
     include-in-header:
       text: |
+        \usepackage{float}
+        \usepackage{placeins}
         \usepackage{fontspec}
         \usepackage{xeCJK}
         \usepackage{setspace}
         \usepackage{titlesec}
-        \setmainfont[
-          Path=/Applications/Microsoft Word.app/Contents/Resources/DFonts/,
-          UprightFont=Calibri,
-          BoldFont=Calibrib,
-          ItalicFont=Calibrii,
-          BoldItalicFont=Calibriz
-        ]{Calibri}
-        \setCJKmainfont[
-          Path=/Applications/Microsoft Word.app/Contents/Resources/DFonts/,
-          UprightFont=MSJH,
-          BoldFont=MSJHBD
-        ]{Microsoft JhengHei}
+        \usepackage{placeins}
+        \setmainfont{Calibri}
+        \setCJKmainfont{Microsoft JhengHei}
         \setstretch{1.5}
         \setlength{\parindent}{0pt}
         \setlength{\parskip}{6pt}
@@ -69,7 +65,16 @@ format:
           {\bfseries\fontsize{12}{18}\selectfont}
           {\thesubsection}{1em}{}
         \titlespacing*{\subsection}{0pt}{10pt}{4pt}
-    toc: true
+        \usepackage{etoolbox}
+        \pretocmd{\section}{\FloatBarrier}{}{}
+        \pretocmd{\subsection}{\FloatBarrier}{}{}
+        \AtBeginEnvironment{CSLReferences}{\raggedright}
+        \renewcommand{\maketitle}{}
+        \let\realmainmatter\mainmatter
+        \renewcommand{\mainmatter}{}
+    include-before-body:
+      - cover.tex
+    toc: false
     number-sections: true
   docx:
     toc: true

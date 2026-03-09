@@ -9,7 +9,7 @@ Despite these challenges, the mercury sphygmomanometer remains particularly valu
 
 
 
-```{r fig.cap="Figure 1.1. BP measurement by auscultatory method. An inflatable upper-arm cuff is inflated to occlude the brachial artery and then slowly deflated while Korotkoff sounds are detected with a stethoscope placed over the artery. The appearance of the first Korotkoff sound during deflation indicates systolic blood pressure, and the disappearance of Korotkoff sounds indicates diastolic blood pressure."}
+```{r fig.cap="BP measurement by auscultatory method. An inflatable upper-arm cuff is inflated to occlude the brachial artery and then slowly deflated while Korotkoff sounds are detected with a stethoscope placed over the artery. The appearance of the first Korotkoff sound during deflation indicates systolic blood pressure, and the disappearance of Korotkoff sounds indicates diastolic blood pressure.", fig.scap="BP measurement by auscultatory method."}
 fig11_path_candidates <- c(
   "output/figure/external/1-1.png",
   "output/figures/External/1-1.png",
@@ -48,7 +48,7 @@ The sensor detects raw signals composed of gradually declining cuff pressure ove
 Unlike MAP, SBP and DBP are not directly identified by a unique, universally agreed-upon feature of the OMWE. Instead, they are estimated or calculated based on the characteristics of the OMWE, often in relation to the already determined MAP, using proprietary algorithms that vary between device manufacturers [@on_behalf_of_the_british_and_irish_hypertension_societys_blood_pressure_measurement_working_party_oscillometric_2019]. 
 
 
-```{r fig.cap="Figure 1.2. BP measurement of oscillometric method. An upper-arm cuff is inflated above arterial occlusion pressure and then gradually deflated. During deflation, arterial volume changes induce pressure oscillations that are superimposed on the cuff pressure signal (oscillometric waveform). The oscillation amplitude increases as cuff pressure approaches MAP and then decreases. SBP and DBP are estimated from the envelope using device-specific algorithms."}
+```{r fig.cap="BP measurement of oscillometric method. An upper-arm cuff is inflated above arterial occlusion pressure and then gradually deflated. During deflation, arterial volume changes induce pressure oscillations that are superimposed on the cuff pressure signal (oscillometric waveform). The oscillation amplitude increases as cuff pressure approaches MAP and then decreases. SBP and DBP are estimated from the envelope using device-specific algorithms.", fig.scap="BP measurement of oscillometric method."}
 fig12_path_candidates <- c(
   "output/figure/external/1-2.png",
   "output/figures/External/1-2.png",

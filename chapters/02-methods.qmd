@@ -25,7 +25,7 @@ Exclusion criteria included upper arm injury or surgery preventing cuff placemen
 
 To reduce BP variability from sequential measurements, all three modalities (Ksens-BP, Oscillo-BP, and Auscl-BP) were integrated into a single experimental assembly.
 
-```{r fig.cap="Figure 2.1. Schematic block diagram of the integrated experimental system. (1) Controller, (2) BP cuff with embedded K-Sensor, (3) oscillometric BP device, (4) stethoscope, (5) trigger device, and (6) computer. All signals were routed through the controller to the host computer for real-time processing and storage, enabling simultaneous Ksens-BP, Oscillo-BP, and Auscl-BP acquisition under identical cuff-pressure conditions."}
+```{r fig.cap="Schematic block diagram of the integrated experimental system. (1) Controller, (2) BP cuff with embedded K-Sensor, (3) oscillometric BP device, (4) stethoscope, (5) trigger device, and (6) computer. All signals were routed through the controller to the host computer for real-time processing and storage, enabling simultaneous Ksens-BP, Oscillo-BP, and Auscl-BP acquisition under identical cuff-pressure conditions.", fig.scap="Schematic block diagram of the integrated experimental system."}
 fig21_path_candidates <- c(
   "output/figures/External/2-1.png",
   "outputs/figures/External/2-1.png",
@@ -50,7 +50,7 @@ A custom-designed controller based on an RL78H1D microcontroller unit controlled
 
 The K-Sensor consisted of a semiconductor piezoresistive strain gauge mounted on a phosphor bronze base plate (approximately 25 mm diameter x 3 mm thickness), enclosed in an aluminum frame, with a biocompatible skin-contacting film. The sensor was embedded directly in a standard upper-arm cuff and positioned over the brachial artery.
 
-```{r fig.cap="Figure 2.2. Setup of the K-Sensor BP monitor. During cuff deflation, the K-Sensor continuously captures arterial wall vibrations associated with Korotkoff sounds. The signal is transmitted to a pretrained host-computer model to determine Ksens-BP."}
+```{r fig.cap="Setup of the K-Sensor BP monitor. During cuff deflation, the K-Sensor continuously captures arterial wall vibrations associated with Korotkoff sounds. The signal is transmitted to a pretrained host-computer model to determine Ksens-BP.", fig.scap="Setup of the K-Sensor BP monitor."}
 fig22_path_candidates <- c(
   "output/figures/External/2-2.png",
   "outputs/figures/External/2-2.png",
@@ -71,35 +71,11 @@ knitr::include_graphics(fig22_path)
 
 During each automated Ksens-BP measurement, cuff pressure and K-Sensor vibration signals were recorded synchronously. The cuff was inflated to a suprasystolic level and deflated in a controlled manner. A pretrained classification model was applied to the deflation-period K-Sensor waveform to detect Korotkoff-related segments (label 1 for Korotkoff sound present, label 0 for absent). These labels were mapped to the simultaneously recorded cuff-pressure trace. Ksens-SBP was defined at the first segment labeled 1 (onset of Korotkoff sounds), and Ksens-DBP at the last segment labeled 1 (disappearance of Korotkoff sounds). When needed, cuff pressure at these time points was obtained by time alignment and interpolation.
 
-```{r fig.cap="Figure 2.3. Schematic diagram of the Ksens-BP determination process.", fig.subcap=c("Panel (a): Representative recording of cuff pressure during inflation/deflation and the simultaneously acquired K-Sensor waveform.", "Panel (b): Automated discrimination of Korotkoff-related pulses within the K-Sensor signal during cuff deflation.", "Panel (c): SBP and DBP are derived by mapping cuff pressure at the first and last detected Korotkoff pulses, respectively."), out.width="100%", fig.ncol=1, fig.show="hold"}
-fig23a_path_candidates <- c(
-  "output/figures/External/2-3a.png",
-  "outputs/figures/External/2-3a.png",
-  "../output/figures/External/2-3a.png",
-  "../outputs/figures/External/2-3a.png"
-)
-fig23b_path_candidates <- c(
-  "output/figures/External/2-3b.png",
-  "outputs/figures/External/2-3b.png",
-  "../output/figures/External/2-3b.png",
-  "../outputs/figures/External/2-3b.png"
-)
-fig23c_path_candidates <- c(
-  "output/figures/External/2-3c.png",
-  "outputs/figures/External/2-3c.png",
-  "../output/figures/External/2-3c.png",
-  "../outputs/figures/External/2-3c.png"
-)
-fig23a_path <- fig23a_path_candidates[file.exists(fig23a_path_candidates)][1]
-fig23b_path <- fig23b_path_candidates[file.exists(fig23b_path_candidates)][1]
-fig23c_path <- fig23c_path_candidates[file.exists(fig23c_path_candidates)][1]
-if (is.na(fig23a_path) || is.na(fig23b_path) || is.na(fig23c_path)) {
-  stop(
-    "'2-3a.png / 2-3b.png / 2-3c.png' not found."
-  )
-}
-knitr::include_graphics(c(fig23a_path, fig23b_path, fig23c_path))
-```
+![](../outputs/figures/External/2-3a.png)
+
+![](../outputs/figures/External/2-3b.png)
+
+![Schematic diagram of the Ksens-BP determination process. Panel (a): Representative recording of cuff pressure during inflation/deflation and the simultaneously acquired K-Sensor waveform. Panel (b): Automated discrimination of Korotkoff-related pulses within the K-Sensor signal during cuff deflation. Panel (c): SBP and DBP are derived by mapping cuff pressure at the first and last detected Korotkoff pulses, respectively.](../outputs/figures/External/2-3c.png){fig-scap="Schematic diagram of the Ksens-BP determination process."}
 
 ### Oscillometric Device Integration
 
@@ -121,7 +97,7 @@ All measurements were performed in a quiet, temperature-controlled room, with pa
 4. After complete deflation, on-screen Oscillo-BP values were recorded.
 5. Three consecutive measurements per participant with a 1-minute rest interval; failed measurements were repeated, allowing up to five attempts.
 
-```{r fig.cap="Figure 2.4. Actual equipment setup and signal acquisition workflow for the automated K-sound blood pressure monitoring system. Left panel: integrated platform with central controller (Label 1) streaming synchronized signals to a laptop (Label 5) for automated K-sound detection and Ksens-BP estimation, with Auscl-BP displayed for reference. Right panel: measurement components and controller inputs, including cuff pressure, stethoscope audio (Label 3), K-Sensor signal (Label 2), and operator trigger signal (Label 4)."}
+```{r fig.cap="Actual equipment setup and signal acquisition workflow for the automated K-sound blood pressure monitoring system. Left panel: integrated platform with central controller (Label 1) streaming synchronized signals to a laptop (Label 5) for automated K-sound detection and Ksens-BP estimation, with Auscl-BP displayed for reference. Right panel: measurement components and controller inputs, including cuff pressure, stethoscope audio (Label 3), K-Sensor signal (Label 2), and operator trigger signal (Label 4).", fig.scap="Actual equipment setup and signal acquisition workflow."}
 fig24_path_candidates <- c(
   "output/figures/External/2-4.png",
   "outputs/figures/External/2-4.png",

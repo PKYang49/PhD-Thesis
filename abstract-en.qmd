@@ -1,0 +1,31 @@
+# Abstract {.unnumbered}
+
+Accurate blood pressure (BP) measurement is crucial for cardiovascular risk assessment and therapeutic decision-making. Although oscillometric BP monitors (Oscillo-BP) are widely used, their performance in high-risk cardiovascular populations may be compromised by arrhythmia and arterial stiffness, resulting in larger measurement discrepancies and higher failure rates. This study evaluated a novel automated Korotkoff sound-based BP monitor (Ksens-BP) that uses a semiconductor piezoresistive microvibration sensor to capture arterial wall signals and a deep-learning model to automatically estimate systolic and diastolic BP, aiming to achieve closer agreement with auscultatory BP than oscillometric measurement in clinically challenging cohorts.
+
+A total of 197 participants were enrolled from a cardiovascular outpatient center, yielding 891 attempted measurements. After excluding non-device-related attempts (human operation error, n = 3; severe tremor, n = 4), 884 attempts were eligible for feasibility evaluation. Oscillo-BP failed in 143/884 attempts (16.2%), whereas Ksens-BP acquisition errors occurred in 61/884 attempts (6.9%), including 6 attempts with concurrent failures of both systems. Ultimately, 686 successful measurements from 178 participants were included in the agreement analysis. Using auscultatory BP as the reference standard, Ksens-BP demonstrated stronger agreement than Oscillo-BP, with higher concordance correlation coefficients for both systolic and diastolic BP. Ksens-BP achieved significantly smaller mean absolute errors for both pressure domains compared with Oscillo-BP. Oscillo-BP exhibited a systematic diastolic underestimation consistent with the known sensitivity of fixed-ratio oscillometric algorithms to arterial stiffness - a bias absent in the Ksens-BP system. Mixed-effects modeling identified male sex as an independent predictor of larger Oscillo-BP systolic discrepancy, with no corresponding effect on Ksens-BP. Atrial fibrillation was the dominant predictor of oscillometric measurement failure, with an adjusted odds ratio exceeding 13 at the attempt level, whereas K-sound-based detection remained viable regardless of cardiac rhythm irregularity.
+
+In this cardiovascular outpatient cohort enriched with atherosclerotic comorbidities, Ksens-BP provided BP estimates with substantially closer agreement with auscultatory measurements than Oscillo-BP, with particular advantages in diastolic agreement, sex-independent measurement consistency, and measurement feasibility in atrial fibrillation. These findings position the K-Sensor approach as a technically and clinically distinct alternative to oscillometry for patient populations in whom the oscillometric measurement model is structurally compromised.
+
+**Keywords:** blood pressure measurement; Korotkoff sounds; oscillometric blood pressure monitor; atrial fibrillation; arterial stiffness; automated blood pressure device
+
+```{=latex}
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{chapter}{Table of Contents}
+\tableofcontents
+\cleardoublepage
+
+\phantomsection
+\addcontentsline{toc}{chapter}{List of Figures}
+\listoffigures
+\cleardoublepage
+
+\phantomsection
+\addcontentsline{toc}{chapter}{List of Tables}
+\listoftables
+\cleardoublepage
+
+\realmainmatter
+\pagenumbering{arabic}
+\setcounter{page}{1}
+```
