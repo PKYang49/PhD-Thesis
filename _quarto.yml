@@ -20,7 +20,7 @@ execute:
 
 bibliography: ref/references.bib
 csl: ref/csl/american-medical-association.csl
-suppress-bibliography: true
+suppress-bibliography: false
 
 format:
   html:
@@ -28,23 +28,47 @@ format:
     number-sections: true
   pdf:
     documentclass: book
+    classoption: openany
     pdf-engine: xelatex
     fontsize: 12pt
+    geometry:
+      - left=3cm
+      - right=2.5cm
+      - top=3cm
+      - bottom=2.5cm
     include-in-header:
       text: |
         \usepackage{fontspec}
         \usepackage{xeCJK}
         \usepackage{setspace}
         \usepackage{titlesec}
-        \setmainfont{Calibri}
-        \setCJKmainfont{Microsoft JhengHei}
+        \setmainfont[
+          Path=/Applications/Microsoft Word.app/Contents/Resources/DFonts/,
+          UprightFont=Calibri,
+          BoldFont=Calibrib,
+          ItalicFont=Calibrii,
+          BoldItalicFont=Calibriz
+        ]{Calibri}
+        \setCJKmainfont[
+          Path=/Applications/Microsoft Word.app/Contents/Resources/DFonts/,
+          UprightFont=MSJH,
+          BoldFont=MSJHBD
+        ]{Microsoft JhengHei}
         \setstretch{1.5}
-        \titleformat{\chapter}[display]
-          {\bfseries\fontsize{16}{24}\selectfont}
-          {\chaptername\ \thechapter}{12pt}{}
+        \setlength{\parindent}{0pt}
+        \setlength{\parskip}{6pt}
+        \titleformat{\chapter}[block]
+          {\centering\bfseries\fontsize{18}{27}\selectfont}
+          {\chaptername\ \thechapter.}{0.5em}{}
+        \titlespacing*{\chapter}{0pt}{-20pt}{24pt}
         \titleformat{\section}
           {\bfseries\fontsize{14}{21}\selectfont}
           {\thesection}{1em}{}
+        \titlespacing*{\section}{0pt}{12pt}{6pt}
+        \titleformat{\subsection}
+          {\bfseries\fontsize{12}{18}\selectfont}
+          {\thesubsection}{1em}{}
+        \titlespacing*{\subsection}{0pt}{10pt}{4pt}
     toc: true
     number-sections: true
   docx:
