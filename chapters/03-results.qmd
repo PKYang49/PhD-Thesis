@@ -143,15 +143,37 @@ if (is.na(table33_path)) {
   )
 }
 table33 <- read_csv(table33_path, show_col_types = FALSE, na = "NA")
+label_abs <- if (knitr::is_html_output()) {
+  html("Mean of<br>absolute differences")
+} else {
+  "Mean of\nabsolute differences"
+}
+label_mean <- if (knitr::is_html_output()) {
+  html("Mean<br>differences")
+} else {
+  "Mean\ndifferences"
+}
+label_pval <- if (knitr::is_html_output()) {
+  html("P value")
+} else {
+  "P value"
+}
+
 table33 |>
   gt() |>
+  cols_label(
+    `Mean of absolute differences` = label_abs,
+    `Mean differences` = label_mean,
+    `P value` = label_pval
+  ) |>
   cols_align(align = "left",  columns = 1) |>
   cols_align(align = "right", columns = 2:5) |>
   tab_style(
     style = cell_text(weight = "bold"),
     locations = cells_column_labels(everything())
   ) |>
-  sub_missing(missing_text = "")
+  sub_missing(missing_text = "") |>
+  tab_options(table.font.size = px(14), table.width = pct(100))
 ```
 
 Consistent with the agreement analyses, Table 3-3 showed smaller absolute differences for Ksens-BP than for Oscillo-BP in both pressure domains. For systolic measurements, the mean absolute difference was 2.0 mmHg for Ksens-BP versus 4.4 mmHg for Oscillo-BP; for diastolic measurements, the corresponding values were 2.3 and 5.4 mmHg. Mean signed differences further indicated directionality of bias: Oscillo-BP was near-neutral for systolic pressure (+0.6 mmHg) but substantially underestimated diastolic pressure (-4.2 mmHg), whereas Ksens-BP remained close to zero for both systolic (+0.9 mmHg) and diastolic (+0.4 mmHg) readings. The between-device comparisons favored Ksens-BP for both systolic and diastolic performance (both p < 0.001).
@@ -227,7 +249,7 @@ For diastolic differences (Table 3-5), none of the prespecified covariates were 
 
 ## Subgroup Analyses
 
-```{r fig.cap="Forest plot of subgroup analyses for systolic absolute differences.", fig.scap="Forest plot of subgroup analyses for systolic absolute differences.", out.width="110%"}
+```{r fig.cap="Forest plot of subgroup analyses for systolic absolute differences.", fig.scap="Forest plot of subgroup analyses for systolic absolute differences.", out.width="100%"}
 fig34_path_candidates <- c(
   "output/figures/3-4forest_SYS_absdiff_subgroups.png",
   "outputs/figures/3-4forest_SYS_absdiff_subgroups.png",
@@ -244,7 +266,7 @@ if (is.na(fig34_path)) {
 knitr::include_graphics(fig34_path)
 ```
 
-```{r fig.cap="Forest plot of subgroup analyses for diastolic absolute differences.", fig.scap="Forest plot of subgroup analyses for diastolic absolute differences.", out.width="110%"}
+```{r fig.cap="Forest plot of subgroup analyses for diastolic absolute differences.", fig.scap="Forest plot of subgroup analyses for diastolic absolute differences.", out.width="100%"}
 fig35_path_candidates <- c(
   "output/figures/3-5forest_DIA_absdiff_subgroups.png",
   "outputs/figures/3-5forest_DIA_absdiff_subgroups.png",
@@ -282,13 +304,23 @@ if (is.na(table36_path)) {
   )
 }
 table36 <- read_csv(table36_path, show_col_types = FALSE, na = "NA")
+label_diff36 <- if (knitr::is_html_output()) {
+  html("Difference<br>[95% CI]")
+} else {
+  "Difference\n[95% CI]"
+}
+
 table36 |>
   gt() |>
+  cols_label(
+    `Difference (Error - No) [95% CI]` = label_diff36
+  ) |>
   tab_style(
     style = cell_text(weight = "bold"),
     locations = cells_column_labels(everything())
   ) |>
-  tab_source_note("SMD, standardized mean difference.")
+  tab_source_note("SMD, standardized mean difference.") |>
+  tab_options(table.font.size = px(14), table.width = pct(100))
 ```
 
 ```{r}
@@ -306,13 +338,23 @@ if (is.na(table37_path)) {
   )
 }
 table37 <- read_csv(table37_path, show_col_types = FALSE, na = "NA")
+label_diff37 <- if (knitr::is_html_output()) {
+  html("Difference<br>[95% CI]")
+} else {
+  "Difference\n[95% CI]"
+}
+
 table37 |>
   gt() |>
+  cols_label(
+    `Difference (Error - No) [95% CI]` = label_diff37
+  ) |>
   tab_style(
     style = cell_text(weight = "bold"),
     locations = cells_column_labels(everything())
   ) |>
-  tab_source_note("SMD, standardized mean difference.")
+  tab_source_note("SMD, standardized mean difference.") |>
+  tab_options(table.font.size = px(14), table.width = pct(100))
 ```
 
 Tables 3-6 and 3-7 show a consistent risk profile for Omron measurement error at both the attempt and patient levels. Compared with non-error observations, error events were associated with older age, smaller arm circumference, lower BMI, and higher HR, with the largest standardized imbalance observed for AF. At the attempt level, AF was substantially more frequent in error attempts (39.9% vs 12.8%; SMD = 0.65), and similar enrichment was observed at the patient level (33.9% vs 7.6%; SMD = 0.69). PAD was also more prevalent among error attempts, whereas DM and composite ASCVD were less frequent in the error group.

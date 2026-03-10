@@ -34,9 +34,9 @@ format:
     pdf-engine: xelatex
     fontsize: 12pt
     geometry:
-      - left=3cm
+      - left=2.5cm
       - right=2.5cm
-      - top=3cm
+      - top=2.5cm
       - bottom=2.5cm
     fig-pos: "H"
     tbl-pos: "H"
