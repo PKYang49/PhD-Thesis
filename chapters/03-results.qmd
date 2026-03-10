@@ -124,6 +124,9 @@ Table 3-2 demonstrates strong agreement between each index device and the auscul
 
 ![Bland-Altman plots for diastolic BP. Panel (A): Oscillo-BP versus auscultatory reference. Panel (B): Ksens-BP versus auscultatory reference.](../outputs/figures/3-3b.png){fig-scap="Bland-Altman plots for diastolic BP."}
 
+```{=latex}
+\FloatBarrier
+```
 
 Bland-Altman plots (Figures 3-2A, 3-2B, 3-3A, and 3-3B) were concordant with these results. For systolic pressure, Ksens-BP showed a small positive bias with narrower limits of agreement (mean difference, 0.93 mmHg; limits of agreement, -8.91 to 10.76 mmHg) compared with Oscillo-BP (mean difference, 0.59 mmHg; limits of agreement, -14.17 to 15.35 mmHg). For diastolic pressure, Ksens-BP again demonstrated tighter dispersion and minimal bias (mean difference, 0.41 mmHg; limits of agreement, -7.64 to 8.46 mmHg), whereas Oscillo-BP showed a larger negative bias and wider limits (mean difference, -4.23 mmHg; limits of agreement, -15.85 to 7.40 mmHg), indicating systematic underestimation relative to auscultatory measurements.
 
