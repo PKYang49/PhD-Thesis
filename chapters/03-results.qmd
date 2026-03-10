@@ -73,9 +73,10 @@ Table 3.1 summarizes the baseline characteristics of the enrolled cohort. The me
 
 ## Agreement and Systematic Differences Between Devices
 
+Table 3.2 demonstrates strong agreement between each index device and the auscultatory reference, with consistently higher concordance for Ksens-BP than for Oscillo-BP. For systolic blood pressure, the CCC was 0.957 (95% CI, 0.950-0.962) for K-SYS versus C-SYS and 0.903 (95% CI, 0.888-0.916) for O-SYS versus C-SYS. A similar pattern was observed for diastolic blood pressure, with CCC values of 0.946 (95% CI, 0.937-0.953) for K-DIA versus C-DIA and 0.851 (95% CI, 0.831-0.869) for O-DIA versus C-DIA.
+
 ```{r}
-#| tbl-cap: "Agreement metrics between devices."
-#| tbl-scap: "Agreement metrics between devices."
+#| output: asis
 table2_path_candidates <- c(
   "outputs/tables/table 3-2.csv",
   "outputs/tables/table3-2.csv",
@@ -93,7 +94,7 @@ if (is.na(table2_path)) {
 }
 
 table2 <- read_csv(table2_path, show_col_types = FALSE, na = "NA")
-table2 |>
+tbl_latex <- table2 |>
   gt() |>
   cols_align(align = "left", columns = 1) |>
   cols_align(align = "right", columns = 2) |>
@@ -108,30 +109,27 @@ table2 |>
       rows = `device comparison` %in% c("SBP", "DBP")
     )
   ) |>
-  sub_missing(missing_text = "")
-```
+  sub_missing(missing_text = "") |>
+  as_latex()
 
-Table 3.2 demonstrates strong agreement between each index device and the auscultatory reference, with consistently higher concordance for Ksens-BP than for Oscillo-BP. For systolic blood pressure, the CCC was 0.957 (95% CI, 0.950-0.962) for K-SYS versus C-SYS and 0.903 (95% CI, 0.888-0.916) for O-SYS versus C-SYS. A similar pattern was observed for diastolic blood pressure, with CCC values of 0.946 (95% CI, 0.937-0.953) for K-DIA versus C-DIA and 0.851 (95% CI, 0.831-0.869) for O-DIA versus C-DIA.
+tbl_str <- as.character(tbl_latex)
+tbl_str <- gsub("\\\\begin\\{table\\}.*?\\n", "", tbl_str)
+tbl_str <- gsub("\\\\end\\{table\\}", "", tbl_str)
+tbl_str <- gsub("\\\\caption\\*\\{.*?\\}", "", tbl_str)
+cat("\\vspace{5\\baselineskip}\n\\captionof{table}{Agreement metrics between devices.}\n", tbl_str, "\n")
+```
 
 ```{=latex}
 \FloatBarrier
 ```
 
-::: {#fig-ba-sbp layout-ncol=1}
-![](../outputs/figures/3-2a.png)
+```{r fig.cap="\\textbf{Bland-Altman plots for systolic BP.} Panel (A): Oscillo-BP versus auscultatory reference. Panel (B): Ksens-BP versus auscultatory reference.", fig.scap="Bland-Altman plots for systolic BP.", out.width="100%"}
+knitr::include_graphics("../outputs/figures/3-2.png")
+```
 
-![](../outputs/figures/3-2b.png)
-
-**Bland-Altman plots for systolic BP.** Panel (A): Oscillo-BP versus auscultatory reference. Panel (B): Ksens-BP versus auscultatory reference.
-:::
-
-::: {#fig-ba-dbp layout-ncol=1}
-![](../outputs/figures/3-3a.png)
-
-![](../outputs/figures/3-3b.png)
-
-**Bland-Altman plots for diastolic BP.** Panel (A): Oscillo-BP versus auscultatory reference. Panel (B): Ksens-BP versus auscultatory reference.
-:::
+```{r fig.cap="\\textbf{Bland-Altman plots for diastolic BP.} Panel (A): Oscillo-BP versus auscultatory reference. Panel (B): Ksens-BP versus auscultatory reference.", fig.scap="Bland-Altman plots for diastolic BP.", out.width="100%"}
+knitr::include_graphics("../outputs/figures/3-3.png")
+```
 
 ```{=latex}
 \FloatBarrier
@@ -264,7 +262,11 @@ For diastolic differences (Table 3.5), none of the prespecified covariates were 
 
 ## Subgroup Analyses
 
-```{r fig.cap="\\textbf{Forest plot of subgroup analyses for systolic absolute differences.}", fig.scap="Forest plot of subgroup analyses for systolic absolute differences.", out.width="100%"}
+```{r}
+#| label: fig-forest-sbp
+#| fig-cap: "**Forest plot of subgroup analyses for systolic absolute differences.** Subgroup-specific estimates of mean absolute systolic BP differences between Ksens-BP and Oscillo-BP versus the auscultatory reference."
+#| fig-scap: "Forest plot of subgroup analyses for systolic absolute differences."
+#| out-width: "100%"
 fig34_path_candidates <- c(
   "output/figures/3-4forest_SYS_absdiff_subgroups.png",
   "outputs/figures/3-4forest_SYS_absdiff_subgroups.png",
@@ -281,7 +283,11 @@ if (is.na(fig34_path)) {
 knitr::include_graphics(fig34_path)
 ```
 
-```{r fig.cap="\\textbf{Forest plot of subgroup analyses for diastolic absolute differences.}", fig.scap="Forest plot of subgroup analyses for diastolic absolute differences.", out.width="100%"}
+```{r}
+#| label: fig-forest-dbp
+#| fig-cap: "**Forest plot of subgroup analyses for diastolic absolute differences.** Subgroup-specific estimates of mean absolute diastolic BP differences between Ksens-BP and Oscillo-BP versus the auscultatory reference."
+#| fig-scap: "Forest plot of subgroup analyses for diastolic absolute differences."
+#| out-width: "100%"
 fig35_path_candidates <- c(
   "output/figures/3-5forest_DIA_absdiff_subgroups.png",
   "outputs/figures/3-5forest_DIA_absdiff_subgroups.png",

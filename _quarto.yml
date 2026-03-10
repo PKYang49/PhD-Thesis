@@ -75,6 +75,7 @@ format:
           {\thesubsection}{1em}{}
         \titlespacing*{\subsection}{0pt}{10pt}{4pt}
         \usepackage{caption}
+        \raggedbottom
         \captionsetup[table]{font=bf}
         \captionsetup[figure]{labelfont=bf}
         \usepackage{etoolbox}
