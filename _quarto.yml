@@ -12,6 +12,7 @@ book:
     - chapters/03-results.qmd
     - chapters/04-discussion.qmd
     - chapters/05-conclusion.qmd
+    - chapters/06-future.qmd
     - chapters/references.qmd
 
 execute:
@@ -29,7 +30,7 @@ format:
     number-sections: true
   pdf:
     documentclass: book
-    classoption: openany
+    classoption: [openany, oneside]
     pdf-engine: xelatex
     fontsize: 12pt
     geometry:
@@ -48,8 +49,16 @@ format:
         \usepackage{setspace}
         \usepackage{titlesec}
         \usepackage{placeins}
-        \setmainfont{Calibri}
-        \setCJKmainfont{Microsoft JhengHei}
+        \setmainfont{texgyreheros-regular.otf}[
+          Path = fonts/,
+          BoldFont = texgyreheros-bold.otf,
+          ItalicFont = texgyreheros-italic.otf,
+          BoldItalicFont = texgyreheros-bolditalic.otf
+        ]
+        \setCJKmainfont{NotoSansCJKtc-Regular.otf}[
+          Path = fonts/,
+          BoldFont = NotoSansCJKtc-Bold.otf
+        ]
         \setstretch{1.5}
         \setlength{\parindent}{0pt}
         \setlength{\parskip}{6pt}
