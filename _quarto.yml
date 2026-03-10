@@ -74,8 +74,14 @@ format:
           {\bfseries\fontsize{12}{18}\selectfont}
           {\thesubsection}{1em}{}
         \titlespacing*{\subsection}{0pt}{10pt}{4pt}
+        \usepackage{caption}
+        \captionsetup[table]{font=bf}
+        \captionsetup[figure]{labelfont=bf}
         \usepackage{etoolbox}
-        \pretocmd{\section}{\FloatBarrier}{}{}
+        \newif\iffirstsection
+        \firstsectiontrue
+        \pretocmd{\chapter}{\firstsectiontrue}{}{}
+        \pretocmd{\section}{\FloatBarrier\iffirstsection\firstsectionfalse\else\clearpage\fi}{}{}
         \pretocmd{\subsection}{\FloatBarrier}{}{}
         \AtBeginEnvironment{CSLReferences}{\raggedright}
         \renewcommand{\maketitle}{}

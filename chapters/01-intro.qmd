@@ -2,14 +2,14 @@
 
 ## Background
 Accurate BP measurement remains a cornerstone in the diagnosis of hypertension, the evaluation of cardiovascular risk, and the management of therapeutic strategies. Although measurement technologies have advanced significantly over the past decades, the pursuit of a method that is universally accurate, reliable, and feasible in various clinical settings is still ongoing.
-For more than a century, the auscultatory method using a mercury sphygmomanometer has been recognized as the gold standard for non-invasive blood pressure (BP) measurement in clinical settings [@muntner_measurement_2019]. This method entails the inflation of an arm cuff to occlude arterial blood flow-most commonly in the brachial artery-followed by gradual deflation while a trained observer detects Korotkoff sounds(K-sounds) via stethoscope(Figure 1.1). The onset of the first K-sound (phase I) is interpreted as the systolic blood pressure (SBP), whereas the disappearance of the sounds (phase V) typically marks the diastolic blood pressure (DBP)(Table 1-1) [@beevers_abc_2001]. The K-sounds are characterized by five distinct phases: Phase I (clear tapping), Phase II (swooshing sounds or murmurs), Phase III (crisper, more intense tapping), Phase IV (abrupt muffling of sounds), and Phase V (silence, or the disappearance of sounds). Accurate identification of these phases, particularly I and V (or IV in certain populations), is paramount for correct BP assessment. The durability, straightforward design, and high inter-device consistency of mercury sphygmomanometers across manufacturers have all contributed to their longstanding acceptance and reliability in clinical practice. 
+For more than a century, the auscultatory method using a mercury sphygmomanometer has been recognized as the gold standard for non-invasive blood pressure (BP) measurement in clinical settings [@muntner_measurement_2019]. This method entails the inflation of an arm cuff to occlude arterial blood flow-most commonly in the brachial artery-followed by gradual deflation while a trained observer detects Korotkoff sounds(K-sounds) via stethoscope(Figure 1.1). The onset of the first K-sound (phase I) is interpreted as the systolic blood pressure (SBP), whereas the disappearance of the sounds (phase V) typically marks the diastolic blood pressure (DBP)(@tbl-ksound-phases) [@beevers_abc_2001]. The K-sounds are characterized by five distinct phases: Phase I (clear tapping), Phase II (swooshing sounds or murmurs), Phase III (crisper, more intense tapping), Phase IV (abrupt muffling of sounds), and Phase V (silence, or the disappearance of sounds). Accurate identification of these phases, particularly I and V (or IV in certain populations), is paramount for correct BP assessment. The durability, straightforward design, and high inter-device consistency of mercury sphygmomanometers across manufacturers have all contributed to their longstanding acceptance and reliability in clinical practice. 
 Manual blood pressure measurement using K-sound is subject to several limitations, primarily related to human error and observer variability [@beevers_abc_2001]. Inaccurate cuff or stethoscope placement, difficulty detecting faint sounds due to noise or inattention, and inconsistencies in identifying the precise pressure at which sounds appear or disappear can all compromise accuracy. Studies have shown that even small changes in stethoscope positioning can lead to significant variations in readings [@pan_quantitative_2018]. Inter-observer variability further reduces reliability, as differences in technique, experience, and hearing acuity can result in inconsistent measurements from the same patient.
 Environmental factors also affect measurement quality. Background noise, common in clinical settings, can obscure K-sounds, especially the softer Phase I and V sounds. In addition, while often considered straightforward, manual BP measurement requires careful technique and proper training. It is time-consuming and may not be practical in high-volume or emergency care settings, where speed and consistency are critical.
 Despite these challenges, the mercury sphygmomanometer remains particularly valuable when clinical decisions are based on precise blood pressure readings, as the method provides unparalleled accuracy when performed correctly. 
 
 
 
-```{r fig.cap="BP measurement by auscultatory method. An inflatable upper-arm cuff is inflated to occlude the brachial artery and then slowly deflated while Korotkoff sounds are detected with a stethoscope placed over the artery. The appearance of the first Korotkoff sound during deflation indicates systolic blood pressure, and the disappearance of Korotkoff sounds indicates diastolic blood pressure.", fig.scap="BP measurement by auscultatory method."}
+```{r fig.cap="\\textbf{BP measurement by auscultatory method.} An inflatable upper-arm cuff is inflated to occlude the brachial artery and then slowly deflated while Korotkoff sounds are detected with a stethoscope placed over the artery. The appearance of the first Korotkoff sound during deflation indicates systolic blood pressure, and the disappearance of Korotkoff sounds indicates diastolic blood pressure.", fig.scap="BP measurement by auscultatory method."}
 fig11_path_candidates <- c(
   "output/figure/external/1-1.png",
   "output/figures/External/1-1.png",
@@ -28,8 +28,6 @@ if (is.na(fig11_path)) {
 knitr::include_graphics(fig11_path)
 ```
 
-Table 1-1. Korotkoff Sound Phases
-
 | Phase | Qualitative description |
 |---|---|
 | I | Appearance: The first loud tapping sound heard; systolic pressure |
@@ -37,6 +35,8 @@ Table 1-1. Korotkoff Sound Phases
 | III | Sharpening: Blowing wind-like murmur disappears |
 | IV | Muffling: The tone is suddenly dull |
 | V | Disappearance: Loss of sound; diastolic pressure |
+
+: Korotkoff Sound Phases {#tbl-ksound-phases}
 
 ## Oscillometric Method Principles and Limitations
 
@@ -48,7 +48,7 @@ The sensor detects raw signals composed of gradually declining cuff pressure ove
 Unlike MAP, SBP and DBP are not directly identified by a unique, universally agreed-upon feature of the OMWE. Instead, they are estimated or calculated based on the characteristics of the OMWE, often in relation to the already determined MAP, using proprietary algorithms that vary between device manufacturers [@on_behalf_of_the_british_and_irish_hypertension_societys_blood_pressure_measurement_working_party_oscillometric_2019]. 
 
 
-```{r fig.cap="BP measurement of oscillometric method. An upper-arm cuff is inflated above arterial occlusion pressure and then gradually deflated. During deflation, arterial volume changes induce pressure oscillations that are superimposed on the cuff pressure signal (oscillometric waveform). The oscillation amplitude increases as cuff pressure approaches MAP and then decreases. SBP and DBP are estimated from the envelope using device-specific algorithms.", fig.scap="BP measurement of oscillometric method."}
+```{r fig.cap="\\textbf{BP measurement of oscillometric method.} An upper-arm cuff is inflated above arterial occlusion pressure and then gradually deflated. During deflation, arterial volume changes induce pressure oscillations that are superimposed on the cuff pressure signal (oscillometric waveform). The oscillation amplitude increases as cuff pressure approaches MAP and then decreases. SBP and DBP are estimated from the envelope using device-specific algorithms.", fig.scap="BP measurement of oscillometric method."}
 fig12_path_candidates <- c(
   "output/figure/external/1-2.png",
   "output/figures/External/1-2.png",
@@ -82,14 +82,14 @@ Atrial fibrillation (AF) presents unique challenges for oscillometric BP measure
 
 
 
-Table 1-2 presents a comparison of the strengths and limitations of the two blood pressure measurement methods.
-
-Table 1-2. Comparative overview of Sphygmomanometer Technologies
+@tbl-sphygmo-comparison presents a comparison of the strengths and limitations of the two blood pressure measurement methods.
 
 | Type | Advantages | Limitations | Validation status |
 |---|---|---|---|
 | Manual auscultatory | Gold standard; simple design; consistent across manufacturers. | Environmental toxicity of mercury leading to phase-out; requires trained observer; susceptible to observer bias. | Well-established |
 | Automated oscillometric | Automated; no observer needed for reading; less susceptible to external noise. | Indirect estimation of SBP/DBP; proprietary algorithms vary and are often unpublished; accuracy issues in specific populations (AF, arterial stiffness, shock). | Calibration against auscultatory sphygmomanometry is required |
+
+: Comparative overview of Sphygmomanometer Technologies {#tbl-sphygmo-comparison}
 
 ## Development Status of Automated K-sound Devices 
 Given the respective advantages and limitations of the auscultatory and oscillometric blood pressure measurement methods, considerable research efforts have been directed toward developing more advanced and automated approaches. Among these, automated K-sound detection technology has emerged as a promising solution to meet this clinical need. The automation of K-sound detection addresses several critical clinical needs simultaneously. First, it preserves the physiological accuracy of the auscultatory method while eliminating the requirement for specialized operator training [@ntineri_novel_2023]. Second, automated systems can provide consistent, reproducible measurements that are not subject to human perception variability or fatigue [@alvarado_alvarez_masking_2023; @menti_visual_2024]. Third, these systems can incorporate advanced signal processing techniques to enhance detection of weak or masked K-sounds that might be missed by human observers [@krishna_mstep_2024]. Moreover, it provides direct physiological measurements of BP, thereby offering improved fidelity and reliability, particularly under challenging clinical conditions [@chang_deep_2021].
@@ -138,8 +138,6 @@ A different professional paradigm is explicit human-machine collaboration. The R
 ### Remaining challenges
 Overall, commercial automated K-sound BP monitors demonstrate that automated auscultation can be productized with acceptable accuracy in protocol-based evaluations. Commercial strategies include (i) hardware-assisted robustness through multi-sensor or improved coupling concepts, (ii) fully automated end-to-end solution, and (iii) measurement verification using auditable curves or human-in-the-loop hybrid modes. Nevertheless, the commercial landscape also highlights persistent limitations: many systems remain sensitive to sensor placement, coupling instability, environmental noise, and motion artifacts. Moreover, validation evidence in physiologically challenging phenotypes-such as AF or severe arterial stiffness-remains comparatively limited. These gaps support continued development of sensing modalities and interpretation frameworks that can capture arterial signals more directly and reduce susceptibility to ambient acoustic contamination and coupling variability.
 
-Table 1-3. Commercial Automated K-Sound Device Landscape
-
 | Device | Launch year | Sensor | Key feature |
 |---|---|---|---|
 | RisingSun RS-651 | 2016 | Microphone + vibration sensor array | Hardware-assisted robustness to reduce cuff-friction/ambient-noise artifacts; cross-references acoustic and vibration signals. |
@@ -148,6 +146,8 @@ Table 1-3. Commercial Automated K-Sound Device Landscape
 | Hanvon FF680 | 2025 | Piezoelectric microphone | Same automated K-sound pipeline in another validated model; consistent protocol-level performance. |
 | Hanvon KSY8600 | 2026 | Piezoelectric microphone | Next-generation validated K-sound BP estimation; continued end-to-end automated interpretation. |
 | InBody/KOROT KOROT P3 Accurate (BPBIO480KV) | 2023-2024 | Electronic stethoscope | "Auditable" measurement with Korotkoff curve display; supports measurement quality assessment (artifact/gap screening) and includes evidence in extra-large arms (42-53 cm). |
+
+: Commercial Automated K-Sound Device Landscape {#tbl-ksound-devices}
 
 
 ## Motivation and Objectives

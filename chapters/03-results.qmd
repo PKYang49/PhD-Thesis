@@ -2,24 +2,17 @@
 
 ## Study Population
 
-```{r fig.cap="Study flow from enrollment to the final paired analytic dataset.", fig.scap="Study flow from enrollment to the final paired analytic dataset."}
-fig31_path_candidates <- c(
-  "output/figures/3-1.png",
-  "outputs/figures/3-1.png",
-  "../output/figures/3-1.png",
-  "../outputs/figures/3-1.png"
-)
-fig31_path <- fig31_path_candidates[file.exists(fig31_path_candidates)][1]
-if (is.na(fig31_path)) {
-  stop(
-    "'3-1.png' not found. Checked:\n",
-    paste(fig31_path_candidates, collapse = "\n")
-  )
-}
-knitr::include_graphics(fig31_path)
+![**Study flow from enrollment to the final paired analytic dataset.**](../outputs/figures/3-1.png){fig-scap="Study flow from enrollment to the final paired analytic dataset." height=85%}
+
+```{=latex}
+\FloatBarrier
 ```
 
-As shown in Figure 3-1, a total of 197 patients contributed 891 blood pressure measurement attempts during the study period. Seven attempts were excluded before device feasibility analysis because of human operation error (n = 3) or severe tremor (n = 4), leaving 884 attempts for feasibility evaluation. Among these, additional attempts were excluded due to Oscillo-BP measurement failure (n = 143), Ksens-BP acquisition error (n = 61), or concurrent failure of both devices (n = 6). The final analytic dataset therefore comprised 686 successful paired measurements from 178 patients.
+As shown in Figure 3.1, a total of 197 patients contributed 891 blood pressure measurement attempts during the study period. Seven attempts were excluded before device feasibility analysis because of human operation error (n = 3) or severe tremor (n = 4), leaving 884 attempts for feasibility evaluation. Among these, additional attempts were excluded due to Oscillo-BP measurement failure (n = 143), Ksens-BP acquisition error (n = 61), or concurrent failure of both devices (n = 6). The final analytic dataset therefore comprised 686 successful paired measurements from 178 patients.
+
+```{=latex}
+\FloatBarrier
+```
 
 ```{r}
 #| tbl-cap: "Baseline characteristics of the study population."
@@ -72,7 +65,11 @@ table1 |>
   )
 ```
 
-Table 3-1 summarizes the baseline characteristics of the enrolled cohort. The mean age was 67.39 +/- 9.61 years, and 142 participants (79.8%) were male. The mean height, body weight, and BMI were 164.15 +/- 8.05 cm, 71.43 +/- 13.52 kg, and 26.38 +/- 3.89 kg/m2, respectively. Hypertension was the most prevalent comorbidity (129, 72.5%), followed by CAD (90, 50.6%), DM (69, 38.8%), and a history of acute MI (61, 34.3%). HF and AF were present in 27 (15.2%) and 28 (15.7%) participants, whereas stroke (7, 3.9%) and PAD (6, 3.4%) were less common.
+Table 3.1 summarizes the baseline characteristics of the enrolled cohort. The mean age was 67.39 +/- 9.61 years, and 142 participants (79.8%) were male. The mean height, body weight, and BMI were 164.15 +/- 8.05 cm, 71.43 +/- 13.52 kg, and 26.38 +/- 3.89 kg/m2, respectively. Hypertension was the most prevalent comorbidity (129, 72.5%), followed by CAD (90, 50.6%), DM (69, 38.8%), and a history of acute MI (61, 34.3%). HF and AF were present in 27 (15.2%) and 28 (15.7%) participants, whereas stroke (7, 3.9%) and PAD (6, 3.4%) were less common.
+
+```{=latex}
+\clearpage
+```
 
 ## Agreement and Systematic Differences Between Devices
 
@@ -114,21 +111,33 @@ table2 |>
   sub_missing(missing_text = "")
 ```
 
-Table 3-2 demonstrates strong agreement between each index device and the auscultatory reference, with consistently higher concordance for Ksens-BP than for Oscillo-BP. For systolic blood pressure, the CCC was 0.957 (95% CI, 0.950-0.962) for K-SYS versus C-SYS and 0.903 (95% CI, 0.888-0.916) for O-SYS versus C-SYS. A similar pattern was observed for diastolic blood pressure, with CCC values of 0.946 (95% CI, 0.937-0.953) for K-DIA versus C-DIA and 0.851 (95% CI, 0.831-0.869) for O-DIA versus C-DIA.
-
-![](../outputs/figures/3-2a.png)
-
-![Bland-Altman plots for systolic BP. Panel (A): Oscillo-BP versus auscultatory reference. Panel (B): Ksens-BP versus auscultatory reference.](../outputs/figures/3-2b.png){fig-scap="Bland-Altman plots for systolic BP."}
-
-![](../outputs/figures/3-3a.png)
-
-![Bland-Altman plots for diastolic BP. Panel (A): Oscillo-BP versus auscultatory reference. Panel (B): Ksens-BP versus auscultatory reference.](../outputs/figures/3-3b.png){fig-scap="Bland-Altman plots for diastolic BP."}
+Table 3.2 demonstrates strong agreement between each index device and the auscultatory reference, with consistently higher concordance for Ksens-BP than for Oscillo-BP. For systolic blood pressure, the CCC was 0.957 (95% CI, 0.950-0.962) for K-SYS versus C-SYS and 0.903 (95% CI, 0.888-0.916) for O-SYS versus C-SYS. A similar pattern was observed for diastolic blood pressure, with CCC values of 0.946 (95% CI, 0.937-0.953) for K-DIA versus C-DIA and 0.851 (95% CI, 0.831-0.869) for O-DIA versus C-DIA.
 
 ```{=latex}
 \FloatBarrier
 ```
 
-Bland-Altman plots (Figures 3-2A, 3-2B, 3-3A, and 3-3B) were concordant with these results. For systolic pressure, Ksens-BP showed a small positive bias with narrower limits of agreement (mean difference, 0.93 mmHg; limits of agreement, -8.91 to 10.76 mmHg) compared with Oscillo-BP (mean difference, 0.59 mmHg; limits of agreement, -14.17 to 15.35 mmHg). For diastolic pressure, Ksens-BP again demonstrated tighter dispersion and minimal bias (mean difference, 0.41 mmHg; limits of agreement, -7.64 to 8.46 mmHg), whereas Oscillo-BP showed a larger negative bias and wider limits (mean difference, -4.23 mmHg; limits of agreement, -15.85 to 7.40 mmHg), indicating systematic underestimation relative to auscultatory measurements.
+::: {#fig-ba-sbp layout-ncol=1}
+![](../outputs/figures/3-2a.png)
+
+![](../outputs/figures/3-2b.png)
+
+**Bland-Altman plots for systolic BP.** Panel (A): Oscillo-BP versus auscultatory reference. Panel (B): Ksens-BP versus auscultatory reference.
+:::
+
+::: {#fig-ba-dbp layout-ncol=1}
+![](../outputs/figures/3-3a.png)
+
+![](../outputs/figures/3-3b.png)
+
+**Bland-Altman plots for diastolic BP.** Panel (A): Oscillo-BP versus auscultatory reference. Panel (B): Ksens-BP versus auscultatory reference.
+:::
+
+```{=latex}
+\FloatBarrier
+```
+
+Bland-Altman plots (Figures 3.2A, 3.2B, 3.3A, and 3.3B) were concordant with these results. For systolic pressure, Ksens-BP showed a small positive bias with narrower limits of agreement (mean difference, 0.93 mmHg; limits of agreement, -8.91 to 10.76 mmHg) compared with Oscillo-BP (mean difference, 0.59 mmHg; limits of agreement, -14.17 to 15.35 mmHg). For diastolic pressure, Ksens-BP again demonstrated tighter dispersion and minimal bias (mean difference, 0.41 mmHg; limits of agreement, -7.64 to 8.46 mmHg), whereas Oscillo-BP showed a larger negative bias and wider limits (mean difference, -4.23 mmHg; limits of agreement, -15.85 to 7.40 mmHg), indicating systematic underestimation relative to auscultatory measurements.
 
 ```{r}
 #| tbl-cap: "Systematic differences and absolute differences."
@@ -179,10 +188,9 @@ table33 |>
   tab_options(table.font.size = px(14), table.width = pct(100))
 ```
 
-Consistent with the agreement analyses, Table 3-3 showed smaller absolute differences for Ksens-BP than for Oscillo-BP in both pressure domains. For systolic measurements, the mean absolute difference was 2.0 mmHg for Ksens-BP versus 4.4 mmHg for Oscillo-BP; for diastolic measurements, the corresponding values were 2.3 and 5.4 mmHg. Mean signed differences further indicated directionality of bias: Oscillo-BP was near-neutral for systolic pressure (+0.6 mmHg) but substantially underestimated diastolic pressure (-4.2 mmHg), whereas Ksens-BP remained close to zero for both systolic (+0.9 mmHg) and diastolic (+0.4 mmHg) readings. The between-device comparisons favored Ksens-BP for both systolic and diastolic performance (both p < 0.001).
+Consistent with the agreement analyses, Table 3.3 showed smaller absolute differences for Ksens-BP than for Oscillo-BP in both pressure domains. For systolic measurements, the mean absolute difference was 2.0 mmHg for Ksens-BP versus 4.4 mmHg for Oscillo-BP; for diastolic measurements, the corresponding values were 2.3 and 5.4 mmHg. Mean signed differences further indicated directionality of bias: Oscillo-BP was near-neutral for systolic pressure (+0.6 mmHg) but substantially underestimated diastolic pressure (-4.2 mmHg), whereas Ksens-BP remained close to zero for both systolic (+0.9 mmHg) and diastolic (+0.4 mmHg) readings. The between-device comparisons favored Ksens-BP for both systolic and diastolic performance (both p < 0.001).
 
 ```{=latex}
-\FloatBarrier
 \clearpage
 ```
 
@@ -246,13 +254,17 @@ table35 |>
   )
 ```
 
-Tables 3-4 and 3-5 summarize mixed-effects models evaluating clinical factors associated with measurement differences versus the auscultatory reference. For systolic differences (Table 3-4), male sex was independently associated with larger Oscillo-SBP differences (beta = 2.92 mmHg, 95% CI 1.00 to 4.84; p = 0.003), whereas no corresponding association was observed for Ksens-SBP (beta = -0.03 mmHg, 95% CI -1.03 to 0.98; p = 0.959). No other covariates reached statistical significance for systolic differences in either device model, although DM showed a borderline inverse association in the Ksens-SBP model (beta = -0.75 mmHg, 95% CI -1.56 to 0.06; p = 0.070).
+Tables 3.4 and 3.5 summarize mixed-effects models evaluating clinical factors associated with measurement differences versus the auscultatory reference. For systolic differences (Table 3.4), male sex was independently associated with larger Oscillo-SBP differences (beta = 2.92 mmHg, 95% CI 1.00 to 4.84; p = 0.003), whereas no corresponding association was observed for Ksens-SBP (beta = -0.03 mmHg, 95% CI -1.03 to 0.98; p = 0.959). No other covariates reached statistical significance for systolic differences in either device model, although DM showed a borderline inverse association in the Ksens-SBP model (beta = -0.75 mmHg, 95% CI -1.56 to 0.06; p = 0.070).
 
-For diastolic differences (Table 3-5), none of the prespecified covariates were statistically significant at the 0.05 level in either device model. In the Ksens-DBP model, higher heart rate (HR) showed a borderline negative association with measurement differences (beta = -0.03 mmHg per bpm, 95% CI -0.06 to 0.00; p = 0.052). In the Oscillo-DBP model, AF tended to be associated with larger positive differences (beta = 2.26 mmHg, 95% CI -0.17 to 4.69; p = 0.069), but this did not reach conventional significance. Overall, these findings suggest limited and outcome-specific covariate effects, with the most robust signal observed for sex-related variation in Oscillo-based systolic measurements.
+For diastolic differences (Table 3.5), none of the prespecified covariates were statistically significant at the 0.05 level in either device model. In the Ksens-DBP model, higher heart rate (HR) showed a borderline negative association with measurement differences (beta = -0.03 mmHg per bpm, 95% CI -0.06 to 0.00; p = 0.052). In the Oscillo-DBP model, AF tended to be associated with larger positive differences (beta = 2.26 mmHg, 95% CI -0.17 to 4.69; p = 0.069), but this did not reach conventional significance. Overall, these findings suggest limited and outcome-specific covariate effects, with the most robust signal observed for sex-related variation in Oscillo-based systolic measurements.
+
+```{=latex}
+\clearpage
+```
 
 ## Subgroup Analyses
 
-```{r fig.cap="Forest plot of subgroup analyses for systolic absolute differences.", fig.scap="Forest plot of subgroup analyses for systolic absolute differences.", out.width="100%"}
+```{r fig.cap="\\textbf{Forest plot of subgroup analyses for systolic absolute differences.}", fig.scap="Forest plot of subgroup analyses for systolic absolute differences.", out.width="100%"}
 fig34_path_candidates <- c(
   "output/figures/3-4forest_SYS_absdiff_subgroups.png",
   "outputs/figures/3-4forest_SYS_absdiff_subgroups.png",
@@ -269,7 +281,7 @@ if (is.na(fig34_path)) {
 knitr::include_graphics(fig34_path)
 ```
 
-```{r fig.cap="Forest plot of subgroup analyses for diastolic absolute differences.", fig.scap="Forest plot of subgroup analyses for diastolic absolute differences.", out.width="100%"}
+```{r fig.cap="\\textbf{Forest plot of subgroup analyses for diastolic absolute differences.}", fig.scap="Forest plot of subgroup analyses for diastolic absolute differences.", out.width="100%"}
 fig35_path_candidates <- c(
   "output/figures/3-5forest_DIA_absdiff_subgroups.png",
   "outputs/figures/3-5forest_DIA_absdiff_subgroups.png",
@@ -286,9 +298,13 @@ if (is.na(fig35_path)) {
 knitr::include_graphics(fig35_path)
 ```
 
-Figures 3-4 and 3-5 summarize subgroup analyses of comparative device performance across hypertension, DM, other ASCVD, PAD, AF, and HR strata. For systolic absolute error (Figure 3-4), the subgroup-specific estimates were consistently below zero, indicating that Ksens-BP maintained smaller absolute systolic deviation from the auscultatory reference than Oscillo-BP across all prespecified subgroups. No significant between-level contrasts were observed for systolic outcomes (all p > 0.05), suggesting no strong effect modification.
+Figures 3.4 and 3.5 summarize subgroup analyses of comparative device performance across hypertension, DM, other ASCVD, PAD, AF, and HR strata. For systolic absolute error (Figure 3.4), the subgroup-specific estimates were consistently below zero, indicating that Ksens-BP maintained smaller absolute systolic deviation from the auscultatory reference than Oscillo-BP across all prespecified subgroups. No significant between-level contrasts were observed for systolic outcomes (all p > 0.05), suggesting no strong effect modification.
 
-For diastolic absolute error (Figure 3-5), the overall pattern also favored Ksens-BP, but heterogeneity was evident in selected subgroups. Significant subgroup differences were observed for DM (Yes vs No: beta = -1.52 mmHg, 95% CI -2.76 to -0.28; p = 0.016) and PAD (Yes vs No: beta = 5.07 mmHg, 95% CI 1.59 to 8.55; p = 0.005), whereas contrasts by hypertension, other ASCVD, and AF were not significant. Although the formal HR tertile analysis did not reach statistical significance, a directional trend toward larger diastolic differences at higher HR was visually apparent in the forest plot. A post-hoc binary analysis using a clinically relevant threshold (HR < 100 vs ≥ 100 bpm) confirmed a significant interaction (mean difference 5.48 [95% CI, 3.59–7.37] vs 8.43 [95% CI, 5.36–11.50] mmHg; p for interaction = 0.022), suggesting that the diastolic accuracy advantage of Ksens-BP over Oscillo-BP was amplified in patients with elevated HR. These findings indicate that the comparative diastolic advantage of Ksens-BP was generally robust but varied in magnitude according to specific comorbidity and hemodynamic profiles.
+For diastolic absolute error (Figure 3.5), the overall pattern also favored Ksens-BP, but heterogeneity was evident in selected subgroups. Significant subgroup differences were observed for DM (Yes vs No: beta = -1.52 mmHg, 95% CI -2.76 to -0.28; p = 0.016) and PAD (Yes vs No: beta = 5.07 mmHg, 95% CI 1.59 to 8.55; p = 0.005), whereas contrasts by hypertension, other ASCVD, and AF were not significant. Although the formal HR tertile analysis did not reach statistical significance, a directional trend toward larger diastolic differences at higher HR was visually apparent in the forest plot. A post-hoc binary analysis using a clinically relevant threshold (HR < 100 vs ≥ 100 bpm) confirmed a significant interaction (mean difference 5.48 [95% CI, 3.59–7.37] vs 8.43 [95% CI, 5.36–11.50] mmHg; p for interaction = 0.022), suggesting that the diastolic accuracy advantage of Ksens-BP over Oscillo-BP was amplified in patients with elevated HR. These findings indicate that the comparative diastolic advantage of Ksens-BP was generally robust but varied in magnitude according to specific comorbidity and hemodynamic profiles.
+
+```{=latex}
+\clearpage
+```
 
 ## Omron Error Analysis
 
@@ -360,7 +376,7 @@ table37 |>
   tab_options(table.font.size = px(14), table.width = pct(100))
 ```
 
-Tables 3-6 and 3-7 show a consistent risk profile for Omron measurement error at both the attempt and patient levels. Compared with non-error observations, error events were associated with older age, smaller arm circumference, lower BMI, and higher HR, with the largest standardized imbalance observed for AF. At the attempt level, AF was substantially more frequent in error attempts (39.9% vs 12.8%; SMD = 0.65), and similar enrichment was observed at the patient level (33.9% vs 7.6%; SMD = 0.69). PAD was also more prevalent among error attempts, whereas DM and composite ASCVD were less frequent in the error group.
+Tables 3.6 and 3.7 show a consistent risk profile for Omron measurement error at both the attempt and patient levels. Compared with non-error observations, error events were associated with older age, smaller arm circumference, lower BMI, and higher HR, with the largest standardized imbalance observed for AF. At the attempt level, AF was substantially more frequent in error attempts (39.9% vs 12.8%; SMD = 0.65), and similar enrichment was observed at the patient level (33.9% vs 7.6%; SMD = 0.69). PAD was also more prevalent among error attempts, whereas DM and composite ASCVD were less frequent in the error group.
 
 ```{r}
 #| tbl-cap: "Mixed-effects logistic regression for Omron error (attempt-level)."
@@ -410,4 +426,4 @@ table39 |>
 
 
 
-Multivariable regression analyses (Tables 3-8 and 3-9) identified AF as the most robust independent correlate of Omron error. In the mixed-effects attempt-level model, AF was associated with markedly increased odds of error (odds ratio [OR], 13.35; 95% CI, 3.00-59.45; p < 0.001), while age, HR, arm circumference, sex, and PAD were not statistically significant after adjustment. In the patient-level logistic model, AF remained strongly associated with error (OR, 4.63; 95% CI, 1.91-11.24; p < 0.001), and older age also emerged as an independent predictor (OR per 1 SD, 1.52; 95% CI, 1.04-2.22; p = 0.029). Smaller arm circumference showed a borderline inverse association (OR per 1 SD, 0.72; 95% CI, 0.50-1.02; p = 0.064), and HR remained directionally positive but non-significant.
+Multivariable regression analyses (Tables 3.8 and 3.9) identified AF as the most robust independent correlate of Omron error. In the mixed-effects attempt-level model, AF was associated with markedly increased odds of error (odds ratio [OR], 13.35; 95% CI, 3.00-59.45; p < 0.001), while age, HR, arm circumference, sex, and PAD were not statistically significant after adjustment. In the patient-level logistic model, AF remained strongly associated with error (OR, 4.63; 95% CI, 1.91-11.24; p < 0.001), and older age also emerged as an independent predictor (OR per 1 SD, 1.52; 95% CI, 1.04-2.22; p = 0.029). Smaller arm circumference showed a borderline inverse association (OR per 1 SD, 0.72; 95% CI, 0.50-1.02; p = 0.064), and HR remained directionally positive but non-significant.
