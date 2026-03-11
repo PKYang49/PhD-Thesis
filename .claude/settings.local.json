@@ -2,7 +2,22 @@
   "permissions": {
     "allow": [
       "Bash(quarto render --to pdf --output-dir _book2)",
-      "Bash(pdftotext \"_book2/My-PhD-Thesis.pdf\" -)"
+      "Bash(pdftotext \"_book2/My-PhD-Thesis.pdf\" -)",
+      "Bash(quarto render --to pdf --keep-tex)",
+      "Bash(quarto render --to pdf)",
+      "Bash(quarto render --to pdf --keep-md)",
+      "Bash(quarto render --to pdf --keep-typ)",
+      "Bash(ls -la _book/*.tex)",
+      "Bash(ls -la *.tex)",
+      "Bash(QUARTO_PANDOC_EXTRA_ARGS=\"--keep-tex\" quarto render --to pdf)",
+      "mcp__claude_ai_PDF_Viewer__display_pdf",
+      "Bash(pdftotext -f 18 -l 22 \"c:/PhD Thesis/_book/My-PhD-Thesis.pdf\" -)",
+      "Bash(pdftotext \"c:/PhD Thesis/_book/My-PhD-Thesis.pdf\" -)",
+      "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); md=d[''result''][''markdown'']; start=md.find\\(''3-2.png''\\); print\\(md[max\\(0,start-200\\):start+200]\\)\")",
+      "Bash(\"/c/Program Files/R/R-4.5.2/bin/Rscript.exe\" -e \":*)",
+      "Bash(grep -o '.\\\\{0,200\\\\}3-2.png.\\\\{0,100\\\\}' .quarto/_freeze/chapters/03-results/execute-results/tex.json)",
+      "Bash(grep -o '.\\\\{0,300\\\\}3-2.png.\\\\{0,200\\\\}' \"c:/PhD Thesis/.quarto/_freeze/chapters/03-results/execute-results/tex.json\")",
+      "Bash(grep -o '.\\\\{0,50\\\\}forest_SYS.\\\\{0,300\\\\}' \"c:/PhD Thesis/.quarto/_freeze/chapters/03-results/execute-results/tex.json\")"
     ]
   }
 }

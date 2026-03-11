@@ -123,11 +123,19 @@ cat("\\vspace{5\\baselineskip}\n\\captionof{table}{Agreement metrics between dev
 \FloatBarrier
 ```
 
-```{r fig.cap="\\textbf{Bland-Altman plots for systolic BP.} Panel (A): Oscillo-BP versus auscultatory reference. Panel (B): Ksens-BP versus auscultatory reference.", fig.scap="Bland-Altman plots for systolic BP.", out.width="100%"}
+```{r}
+#| label: fig-ba-sbp
+#| fig-cap: "\\textbf{Bland-Altman plots for systolic BP.} Panel (A): Oscillo-BP versus auscultatory reference. Panel (B): Ksens-BP versus auscultatory reference."
+#| fig-scap: "Bland-Altman plots for systolic BP."
+#| out-width: "100%"
 knitr::include_graphics("../outputs/figures/3-2.png")
 ```
 
-```{r fig.cap="\\textbf{Bland-Altman plots for diastolic BP.} Panel (A): Oscillo-BP versus auscultatory reference. Panel (B): Ksens-BP versus auscultatory reference.", fig.scap="Bland-Altman plots for diastolic BP.", out.width="100%"}
+```{r}
+#| label: fig-ba-dbp
+#| fig-cap: "\\textbf{Bland-Altman plots for diastolic BP.} Panel (A): Oscillo-BP versus auscultatory reference. Panel (B): Ksens-BP versus auscultatory reference."
+#| fig-scap: "Bland-Altman plots for diastolic BP."
+#| out-width: "100%"
 knitr::include_graphics("../outputs/figures/3-3.png")
 ```
 
@@ -264,7 +272,7 @@ For diastolic differences (Table 3.5), none of the prespecified covariates were 
 
 ```{r}
 #| label: fig-forest-sbp
-#| fig-cap: "**Forest plot of subgroup analyses for systolic absolute differences.** Subgroup-specific estimates of mean absolute systolic BP differences between Ksens-BP and Oscillo-BP versus the auscultatory reference."
+#| fig-cap: "\\textbf{Forest plot of subgroup analyses for systolic absolute differences.} Subgroup-specific estimates of mean absolute systolic BP differences between Ksens-BP and Oscillo-BP versus the auscultatory reference."
 #| fig-scap: "Forest plot of subgroup analyses for systolic absolute differences."
 #| out-width: "100%"
 fig34_path_candidates <- c(
@@ -285,7 +293,7 @@ knitr::include_graphics(fig34_path)
 
 ```{r}
 #| label: fig-forest-dbp
-#| fig-cap: "**Forest plot of subgroup analyses for diastolic absolute differences.** Subgroup-specific estimates of mean absolute diastolic BP differences between Ksens-BP and Oscillo-BP versus the auscultatory reference."
+#| fig-cap: "\\textbf{Forest plot of subgroup analyses for diastolic absolute differences.} Subgroup-specific estimates of mean absolute diastolic BP differences between Ksens-BP and Oscillo-BP versus the auscultatory reference."
 #| fig-scap: "Forest plot of subgroup analyses for diastolic absolute differences."
 #| out-width: "100%"
 fig35_path_candidates <- c(
@@ -313,6 +321,8 @@ For diastolic absolute error (Figure 3.5), the overall pattern also favored Ksen
 ```
 
 ## Omron Error Analysis
+
+Tables 3.6 and 3.7 show a consistent risk profile for Omron measurement error at both the attempt and patient levels. Compared with non-error observations, error events were associated with older age, smaller arm circumference, lower BMI, and higher HR, with the largest standardized imbalance observed for AF. At the attempt level, AF was substantially more frequent in error attempts (39.9% vs 12.8%; SMD = 0.65), and similar enrichment was observed at the patient level (33.9% vs 7.6%; SMD = 0.69). PAD was also more prevalent among error attempts, whereas DM and composite ASCVD were less frequent in the error group.
 
 ```{r}
 #| tbl-cap: "Omron error descriptive summary (attempt-level)."
@@ -382,7 +392,11 @@ table37 |>
   tab_options(table.font.size = px(14), table.width = pct(100))
 ```
 
-Tables 3.6 and 3.7 show a consistent risk profile for Omron measurement error at both the attempt and patient levels. Compared with non-error observations, error events were associated with older age, smaller arm circumference, lower BMI, and higher HR, with the largest standardized imbalance observed for AF. At the attempt level, AF was substantially more frequent in error attempts (39.9% vs 12.8%; SMD = 0.65), and similar enrichment was observed at the patient level (33.9% vs 7.6%; SMD = 0.69). PAD was also more prevalent among error attempts, whereas DM and composite ASCVD were less frequent in the error group.
+Multivariable regression analyses (Tables 3.8 and 3.9) identified AF as the most robust independent correlate of Omron error. In the mixed-effects attempt-level model, AF was associated with markedly increased odds of error (odds ratio [OR], 13.35; 95% CI, 3.00-59.45; p < 0.001), while age, HR, arm circumference, sex, and PAD were not statistically significant after adjustment. In the patient-level logistic model, AF remained strongly associated with error (OR, 4.63; 95% CI, 1.91-11.24; p < 0.001), and older age also emerged as an independent predictor (OR per 1 SD, 1.52; 95% CI, 1.04-2.22; p = 0.029). Smaller arm circumference showed a borderline inverse association (OR per 1 SD, 0.72; 95% CI, 0.50-1.02; p = 0.064), and HR remained directionally positive but non-significant.
+
+```{=latex}
+\clearpage
+```
 
 ```{r}
 #| tbl-cap: "Mixed-effects logistic regression for Omron error (attempt-level)."
@@ -429,7 +443,3 @@ table39 |>
     locations = cells_column_labels(everything())
   )
 ```
-
-
-
-Multivariable regression analyses (Tables 3.8 and 3.9) identified AF as the most robust independent correlate of Omron error. In the mixed-effects attempt-level model, AF was associated with markedly increased odds of error (odds ratio [OR], 13.35; 95% CI, 3.00-59.45; p < 0.001), while age, HR, arm circumference, sex, and PAD were not statistically significant after adjustment. In the patient-level logistic model, AF remained strongly associated with error (OR, 4.63; 95% CI, 1.91-11.24; p < 0.001), and older age also emerged as an independent predictor (OR per 1 SD, 1.52; 95% CI, 1.04-2.22; p = 0.029). Smaller arm circumference showed a borderline inverse association (OR per 1 SD, 0.72; 95% CI, 0.50-1.02; p = 0.064), and HR remained directionally positive but non-significant.

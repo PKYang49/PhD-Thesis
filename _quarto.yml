@@ -77,7 +77,7 @@ format:
         \usepackage{caption}
         \raggedbottom
         \captionsetup[table]{font=bf}
-        \captionsetup[figure]{labelfont=bf}
+        \captionsetup[figure]{labelfont=bf,textfont=normalfont}
         \usepackage{etoolbox}
         \newif\iffirstsection
         \firstsectiontrue
