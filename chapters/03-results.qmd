@@ -14,6 +14,8 @@ As shown in Figure 3.1, a total of 197 patients contributed 891 blood pressure m
 \FloatBarrier
 ```
 
+Table 3.1 summarizes the baseline characteristics of the enrolled cohort. The mean age was 67.39 +/- 9.61 years, and 142 participants (79.8%) were male. The mean height, body weight, and BMI were 164.15 +/- 8.05 cm, 71.43 +/- 13.52 kg, and 26.38 +/- 3.89 kg/m2, respectively. Hypertension was the most prevalent comorbidity (129, 72.5%), followed by CAD (90, 50.6%), DM (69, 38.8%), and a history of acute MI (61, 34.3%). HF and AF were present in 27 (15.2%) and 28 (15.7%) participants, whereas stroke (7, 3.9%) and PAD (6, 3.4%) were less common.
+
 ```{r}
 #| tbl-cap: "Baseline characteristics of the study population."
 #| tbl-scap: "Baseline characteristics of the study population."
@@ -64,8 +66,6 @@ table1 |>
     )
   )
 ```
-
-Table 3.1 summarizes the baseline characteristics of the enrolled cohort. The mean age was 67.39 +/- 9.61 years, and 142 participants (79.8%) were male. The mean height, body weight, and BMI were 164.15 +/- 8.05 cm, 71.43 +/- 13.52 kg, and 26.38 +/- 3.89 kg/m2, respectively. Hypertension was the most prevalent comorbidity (129, 72.5%), followed by CAD (90, 50.6%), DM (69, 38.8%), and a history of acute MI (61, 34.3%). HF and AF were present in 27 (15.2%) and 28 (15.7%) participants, whereas stroke (7, 3.9%) and PAD (6, 3.4%) were less common.
 
 ```{=latex}
 \clearpage
@@ -191,7 +191,7 @@ table33 |>
     locations = cells_column_labels(everything())
   ) |>
   sub_missing(missing_text = "") |>
-  tab_options(table.font.size = px(14), table.width = pct(100))
+  tab_options(table.width = pct(100))
 ```
 
 Consistent with the agreement analyses, Table 3.3 showed smaller absolute differences for Ksens-BP than for Oscillo-BP in both pressure domains. For systolic measurements, the mean absolute difference was 2.0 mmHg for Ksens-BP versus 4.4 mmHg for Oscillo-BP; for diastolic measurements, the corresponding values were 2.3 and 5.4 mmHg. Mean signed differences further indicated directionality of bias: Oscillo-BP was near-neutral for systolic pressure (+0.6 mmHg) but substantially underestimated diastolic pressure (-4.2 mmHg), whereas Ksens-BP remained close to zero for both systolic (+0.9 mmHg) and diastolic (+0.4 mmHg) readings. The between-device comparisons favored Ksens-BP for both systolic and diastolic performance (both p < 0.001).
@@ -202,9 +202,17 @@ Consistent with the agreement analyses, Table 3.3 showed smaller absolute differ
 
 ## Factors Influencing Measurement Differences
 
+Tables 3.4 and 3.5 summarize mixed-effects models evaluating clinical factors associated with measurement differences versus the auscultatory reference. For systolic differences (Table 3.4), male sex was independently associated with larger Oscillo-SBP differences (beta = 2.92 mmHg, 95% CI 1.00 to 4.84; p = 0.003), whereas no corresponding association was observed for Ksens-SBP (beta = -0.03 mmHg, 95% CI -1.03 to 0.98; p = 0.959). No other covariates reached statistical significance for systolic differences in either device model, although DM showed a borderline inverse association in the Ksens-SBP model (beta = -0.75 mmHg, 95% CI -1.56 to 0.06; p = 0.070).
+
+For diastolic differences (Table 3.5), none of the prespecified covariates were statistically significant at the 0.05 level in either device model. In the Ksens-DBP model, higher heart rate (HR) showed a borderline negative association with measurement differences (beta = -0.03 mmHg per bpm, 95% CI -0.06 to 0.00; p = 0.052). In the Oscillo-DBP model, AF tended to be associated with larger positive differences (beta = 2.26 mmHg, 95% CI -0.17 to 4.69; p = 0.069), but this did not reach conventional significance. Overall, these findings suggest limited and outcome-specific covariate effects, with the most robust signal observed for sex-related variation in Oscillo-based systolic measurements.
+
+```{=latex}
+\newpage
+\begin{minipage}{\linewidth}
+```
+
 ```{r}
-#| tbl-cap: "Mixed-effects model for systolic BP difference."
-#| tbl-scap: "Mixed-effects model for systolic BP difference."
+#| results: asis
 table34_path_candidates <- c(
   "outputs/tables/table3-4_sbp_mixedmodel.csv",
   "../outputs/tables/table3-4_sbp_mixedmodel.csv"
@@ -219,7 +227,7 @@ if (is.na(table34_path)) {
 table34 <- read_csv(table34_path, show_col_types = FALSE, na = "NA")
 names(table34)[3] <- "p_oscillo"
 names(table34)[5] <- "p_ksens"
-table34 |>
+table34_gt <- table34 |>
   gt() |>
   cols_label(
     p_oscillo = "p",
@@ -228,12 +236,47 @@ table34 |>
   tab_style(
     style = cell_text(weight = "bold"),
     locations = cells_column_labels(everything())
+  ) |>
+  tab_options(
+    table.font.size = px(9),
+    column_labels.font.size = px(9),
+    column_labels.padding = px(1),
+    data_row.padding = px(0)
   )
+
+emit_gt_captionof <- function(gt_tbl, caption, after = "") {
+  tbl_str <- as.character(as_latex(gt_tbl))
+  tbl_str <- gsub("\\\\begin\\{table\\}.*?\\n", "", tbl_str)
+  tbl_str <- gsub("\\\\end\\{table\\}", "", tbl_str)
+  tbl_str <- gsub("\\\\caption\\*\\{.*?\\}", "", tbl_str)
+  tbl_str <- gsub(
+    "\\\\fontsize\\{[0-9.]+pt\\}\\{[0-9.]+pt\\}\\\\selectfont",
+    "\\\\fontsize{12pt}{14pt}\\\\selectfont",
+    tbl_str
+  )
+  cat(
+    "\\captionsetup{type=table,skip=2pt}\n",
+    "\\captionof{table}{", caption, "}\n",
+    tbl_str,
+    "\n",
+    after,
+    sep = ""
+  )
+}
+
+if (knitr::is_latex_output()) {
+  emit_gt_captionof(
+    table34_gt,
+    "Mixed-effects model for systolic BP difference.",
+    "\\vspace{7\\baselineskip}\n"
+  )
+} else {
+  table34_gt
+}
 ```
 
 ```{r}
-#| tbl-cap: "Mixed-effects model for diastolic BP difference."
-#| tbl-scap: "Mixed-effects model for diastolic BP difference."
+#| results: asis
 table35_path_candidates <- c(
   "outputs/tables/table3-5_dbp_mixedmodel.csv",
   "../outputs/tables/table3-5_dbp_mixedmodel.csv"
@@ -248,7 +291,7 @@ if (is.na(table35_path)) {
 table35 <- read_csv(table35_path, show_col_types = FALSE, na = "NA")
 names(table35)[3] <- "p_oscillo"
 names(table35)[5] <- "p_ksens"
-table35 |>
+table35_gt <- table35 |>
   gt() |>
   cols_label(
     p_oscillo = "p",
@@ -257,12 +300,27 @@ table35 |>
   tab_style(
     style = cell_text(weight = "bold"),
     locations = cells_column_labels(everything())
+  ) |>
+  tab_options(
+    table.font.size = px(9),
+    column_labels.font.size = px(9),
+    column_labels.padding = px(1),
+    data_row.padding = px(0)
   )
+
+if (knitr::is_latex_output()) {
+  emit_gt_captionof(
+    table35_gt,
+    "Mixed-effects model for diastolic BP difference."
+  )
+} else {
+  table35_gt
+}
 ```
 
-Tables 3.4 and 3.5 summarize mixed-effects models evaluating clinical factors associated with measurement differences versus the auscultatory reference. For systolic differences (Table 3.4), male sex was independently associated with larger Oscillo-SBP differences (beta = 2.92 mmHg, 95% CI 1.00 to 4.84; p = 0.003), whereas no corresponding association was observed for Ksens-SBP (beta = -0.03 mmHg, 95% CI -1.03 to 0.98; p = 0.959). No other covariates reached statistical significance for systolic differences in either device model, although DM showed a borderline inverse association in the Ksens-SBP model (beta = -0.75 mmHg, 95% CI -1.56 to 0.06; p = 0.070).
-
-For diastolic differences (Table 3.5), none of the prespecified covariates were statistically significant at the 0.05 level in either device model. In the Ksens-DBP model, higher heart rate (HR) showed a borderline negative association with measurement differences (beta = -0.03 mmHg per bpm, 95% CI -0.06 to 0.00; p = 0.052). In the Oscillo-DBP model, AF tended to be associated with larger positive differences (beta = 2.26 mmHg, 95% CI -0.17 to 4.69; p = 0.069), but this did not reach conventional significance. Overall, these findings suggest limited and outcome-specific covariate effects, with the most robust signal observed for sex-related variation in Oscillo-based systolic measurements.
+```{=latex}
+\end{minipage}
+```
 
 ```{=latex}
 \clearpage
