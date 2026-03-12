@@ -12,6 +12,7 @@ As shown in Figure 3.1, a total of 197 patients contributed 891 blood pressure m
 
 ```{=latex}
 \FloatBarrier
+\clearpage
 ```
 
 Table 3.1 summarizes the baseline characteristics of the enrolled cohort. The mean age was 67.39 +/- 9.61 years, and 142 participants (79.8%) were male. The mean height, body weight, and BMI were 164.15 +/- 8.05 cm, 71.43 +/- 13.52 kg, and 26.38 +/- 3.89 kg/m2, respectively. Hypertension was the most prevalent comorbidity (129, 72.5%), followed by CAD (90, 50.6%), DM (69, 38.8%), and a history of acute MI (61, 34.3%). HF and AF were present in 27 (15.2%) and 28 (15.7%) participants, whereas stroke (7, 3.9%) and PAD (6, 3.4%) were less common.
@@ -328,46 +329,21 @@ if (knitr::is_latex_output()) {
 
 ## Subgroup Analyses
 
-```{r}
-#| label: fig-forest-sbp
-#| fig-cap: "\\textbf{Forest plot of subgroup analyses for systolic absolute differences.} Subgroup-specific estimates of mean absolute systolic BP differences between Ksens-BP and Oscillo-BP versus the auscultatory reference."
-#| fig-scap: "Forest plot of subgroup analyses for systolic absolute differences."
-#| out-width: "100%"
-fig34_path_candidates <- c(
-  "output/figures/3-4forest_SYS_absdiff_subgroups.png",
-  "outputs/figures/3-4forest_SYS_absdiff_subgroups.png",
-  "../output/figures/3-4forest_SYS_absdiff_subgroups.png",
-  "../outputs/figures/3-4forest_SYS_absdiff_subgroups.png"
-)
-fig34_path <- fig34_path_candidates[file.exists(fig34_path_candidates)][1]
-if (is.na(fig34_path)) {
-  stop(
-    "'3-4forest_SYS_absdiff_subgroups.png' not found. Checked:\n",
-    paste(fig34_path_candidates, collapse = "\n")
-  )
-}
-knitr::include_graphics(fig34_path)
-```
-
-```{r}
-#| label: fig-forest-dbp
-#| fig-cap: "\\textbf{Forest plot of subgroup analyses for diastolic absolute differences.} Subgroup-specific estimates of mean absolute diastolic BP differences between Ksens-BP and Oscillo-BP versus the auscultatory reference."
-#| fig-scap: "Forest plot of subgroup analyses for diastolic absolute differences."
-#| out-width: "100%"
-fig35_path_candidates <- c(
-  "output/figures/3-5forest_DIA_absdiff_subgroups.png",
-  "outputs/figures/3-5forest_DIA_absdiff_subgroups.png",
-  "../output/figures/3-5forest_DIA_absdiff_subgroups.png",
-  "../outputs/figures/3-5forest_DIA_absdiff_subgroups.png"
-)
-fig35_path <- fig35_path_candidates[file.exists(fig35_path_candidates)][1]
-if (is.na(fig35_path)) {
-  stop(
-    "'3-5forest_DIA_absdiff_subgroups.png' not found. Checked:\n",
-    paste(fig35_path_candidates, collapse = "\n")
-  )
-}
-knitr::include_graphics(fig35_path)
+```{=latex}
+\enlargethispage{2\baselineskip}
+\begin{figure}[H]
+\centering
+\makebox[\textwidth][c]{\includegraphics[height=0.40\textheight]{outputs/figures/3-4forest_SYS_absdiff_subgroups.png}}
+\captionsetup{font=footnotesize}
+\caption[Forest plot of subgroup analyses for systolic absolute differences.]{\textbf{Forest plot of subgroup analyses for systolic absolute differences.} Subgroup-specific estimates of mean absolute systolic BP differences between Ksens-BP and Oscillo-BP versus the auscultatory reference.}
+\end{figure}
+\vspace{-\baselineskip}
+\begin{figure}[H]
+\centering
+\makebox[\textwidth][c]{\includegraphics[height=0.40\textheight]{outputs/figures/3-5forest_DIA_absdiff_subgroups.png}}
+\captionsetup{font=footnotesize}
+\caption[Forest plot of subgroup analyses for diastolic absolute differences.]{\textbf{Forest plot of subgroup analyses for diastolic absolute differences.} Subgroup-specific estimates of mean absolute diastolic BP differences between Ksens-BP and Oscillo-BP versus the auscultatory reference.}
+\end{figure}
 ```
 
 Figures 3.4 and 3.5 summarize subgroup analyses of comparative device performance across hypertension, DM, other ASCVD, PAD, AF, and HR strata. For systolic absolute error (Figure 3.4), the subgroup-specific estimates were consistently below zero, indicating that Ksens-BP maintained smaller absolute systolic deviation from the auscultatory reference than Oscillo-BP across all prespecified subgroups. No significant between-level contrasts were observed for systolic outcomes (all p > 0.05), suggesting no strong effect modification.
