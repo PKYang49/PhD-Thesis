@@ -78,13 +78,14 @@ format:
         \raggedbottom
         \captionsetup[table]{font=bf}
         \captionsetup[figure]{labelfont=bf,textfont=normalfont}
+        \usepackage{ragged2e}
         \usepackage{etoolbox}
         \newif\iffirstsection
         \firstsectiontrue
         \pretocmd{\chapter}{\firstsectiontrue}{}{}
         \pretocmd{\section}{\FloatBarrier\iffirstsection\firstsectionfalse\else\clearpage\fi}{}{}
         \pretocmd{\subsection}{\FloatBarrier}{}{}
-        \AtBeginEnvironment{CSLReferences}{\raggedright}
+        \AtBeginEnvironment{CSLReferences}{\RaggedRight}
         \renewcommand{\maketitle}{}
         \let\realmainmatter\mainmatter
         \renewcommand{\mainmatter}{}

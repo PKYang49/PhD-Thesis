@@ -17,7 +17,8 @@
       "Bash(\"/c/Program Files/R/R-4.5.2/bin/Rscript.exe\" -e \":*)",
       "Bash(grep -o '.\\\\{0,200\\\\}3-2.png.\\\\{0,100\\\\}' .quarto/_freeze/chapters/03-results/execute-results/tex.json)",
       "Bash(grep -o '.\\\\{0,300\\\\}3-2.png.\\\\{0,200\\\\}' \"c:/PhD Thesis/.quarto/_freeze/chapters/03-results/execute-results/tex.json\")",
-      "Bash(grep -o '.\\\\{0,50\\\\}forest_SYS.\\\\{0,300\\\\}' \"c:/PhD Thesis/.quarto/_freeze/chapters/03-results/execute-results/tex.json\")"
+      "Bash(grep -o '.\\\\{0,50\\\\}forest_SYS.\\\\{0,300\\\\}' \"c:/PhD Thesis/.quarto/_freeze/chapters/03-results/execute-results/tex.json\")",
+      "Bash(ls /Users/pokai/PhD-Thesis/_book/*.tex)"
     ]
   }
 }

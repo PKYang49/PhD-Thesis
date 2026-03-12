@@ -194,9 +194,9 @@ x_lim <- c(-10, 10)
 # 8) Left table panel
 # ------------------------------------------------------------
 left_tbl <- ggplot() +
-  geom_text(data = df,     aes(x = 0,   y = y, label = level_disp_plot), hjust = 0,   size = 8) +
-  geom_text(data = df,     aes(x = 0.8, y = y, label = ci_txt),           hjust = 0,   size = 8) +
-  geom_text(data = header, aes(x = 1.1, y = y, label = ci_txt),           hjust = 0.5, fontface = "bold", size = 7) +
+  geom_text(data = df,     aes(x = 0,   y = y, label = level_disp_plot), hjust = 0,   size = 9) +
+  geom_text(data = df,     aes(x = 0.8, y = y, label = ci_txt),           hjust = 0,   size = 9) +
+  geom_text(data = header, aes(x = 1.1, y = y, label = ci_txt),           hjust = 0.5, fontface = "bold", size = 8) +
   coord_cartesian(xlim = c(-0.05, 1.6), ylim = c(0.5, max(df$y) + 2.4), clip = "off") +
   theme_void() +
   theme(plot.margin = margin(10, 0, 10, 10))
@@ -214,18 +214,18 @@ forest <- ggplot(df_forest, aes(x = estimate, y = y)) +
   labs(title = "Forest plot", x = NULL, y = NULL) +
   annotate("text",
            x = -9.5, y = max(df$y) + 1.65,
-           label = "Favor Oscillo-DBP", size = 8, hjust = 0) +
+           label = "Favor Oscillo-DBP", size = 9, hjust = 0) +
   annotate("text",
            x =  9.5, y = max(df$y) + 1.65,
-           label = "Favor Ksens-DBP", size = 8, hjust = 1) +
+           label = "Favor Ksens-DBP", size = 9, hjust = 1) +
   coord_cartesian(xlim = x_lim, ylim = c(0.5, max(df$y) + 2.4), clip = "off") +
-  theme_minimal(base_size = 16) +
+  theme_minimal(base_size = 17) +
   theme(
     axis.text.y = element_blank(),
     axis.ticks.y = element_blank(),
     panel.grid.major.y = element_blank(),
     panel.grid.minor = element_blank(),
-    plot.title = element_text(hjust = 0.5, size = 26),
+    plot.title = element_text(hjust = 0.5, size = 27),
     plot.margin = margin(10, 0, 10, 0)
   )
 
@@ -233,8 +233,8 @@ forest <- ggplot(df_forest, aes(x = estimate, y = y)) +
 # 10) Right p-value panel
 # ------------------------------------------------------------
 right_p <- ggplot() +
-  geom_text(data = df, aes(x = 1, y = y, label = p_txt), hjust = 1, size = 8) +
-  geom_text(data = header, aes(x = 1, y = y, label = p_txt), hjust = 1, fontface = "bold", size = 8) +
+  geom_text(data = df, aes(x = 1, y = y, label = p_txt), hjust = 1, size = 9) +
+  geom_text(data = header, aes(x = 1, y = y, label = p_txt), hjust = 1, fontface = "bold", size = 9) +
   coord_cartesian(xlim = c(0, 1), ylim = c(0.5, max(df$y) + 2.4), clip = "off") +
   theme_void() +
   theme(plot.margin = margin(10, 10, 10, 0))
