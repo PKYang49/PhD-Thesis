@@ -21,7 +21,7 @@ execute:
   message: false
 
 bibliography: ref/references.bib
-csl: ref/csl/american-medical-association.csl
+csl: ref/csl/sage-vancouver-brackets.csl
 suppress-bibliography: false
 
 format:
@@ -33,11 +33,12 @@ format:
     classoption: [openany, oneside]
     pdf-engine: xelatex
     fontsize: 12pt
+    papersize: a4
     geometry:
-      - left=2.5cm
-      - right=2.5cm
-      - top=2.5cm
-      - bottom=2.5cm
+      - left=30mm
+      - right=25mm
+      - top=23mm
+      - bottom=35mm
     fig-pos: "H"
     tbl-pos: "H"
     include-in-header:
@@ -89,6 +90,14 @@ format:
         \renewcommand{\maketitle}{}
         \let\realmainmatter\mainmatter
         \renewcommand{\mainmatter}{}
+        \pagestyle{plain}
+        \usepackage{fancyhdr}
+        \fancypagestyle{plain}{
+          \fancyhf{}
+          \fancyfoot[C]{\thepage}
+          \renewcommand{\headrulewidth}{0pt}
+        }
+        \AtBeginDocument{\pagestyle{plain}}
     include-before-body:
       - cover.tex
     toc: false

@@ -146,10 +146,10 @@ knitr::include_graphics("../outputs/figures/3-3.png")
 
 Bland-Altman plots (Figures 3.2A, 3.2B, 3.3A, and 3.3B) were concordant with these results. For systolic pressure, Ksens-BP showed a small positive bias with narrower limits of agreement (mean difference, 0.93 mmHg; limits of agreement, -8.91 to 10.76 mmHg) compared with Oscillo-BP (mean difference, 0.59 mmHg; limits of agreement, -14.17 to 15.35 mmHg). For diastolic pressure, Ksens-BP again demonstrated tighter dispersion and minimal bias (mean difference, 0.41 mmHg; limits of agreement, -7.64 to 8.46 mmHg), whereas Oscillo-BP showed a larger negative bias and wider limits (mean difference, -4.23 mmHg; limits of agreement, -15.85 to 7.40 mmHg), indicating systematic underestimation relative to auscultatory measurements.
 
+Consistent with the agreement analyses, Table 3.3 showed smaller absolute differences for Ksens-BP than for Oscillo-BP in both pressure domains. For systolic measurements, the mean absolute difference was 2.0 mmHg for Ksens-BP versus 4.4 mmHg for Oscillo-BP; for diastolic measurements, the corresponding values were 2.3 and 5.4 mmHg. Mean signed differences further indicated directionality of bias: Oscillo-BP was near-neutral for systolic pressure (+0.6 mmHg) but substantially underestimated diastolic pressure (-4.2 mmHg), whereas Ksens-BP remained close to zero for both systolic (+0.9 mmHg) and diastolic (+0.4 mmHg) readings. The between-device comparisons favored Ksens-BP for both systolic and diastolic performance (both p < 0.001).
+
 ```{r}
-#| tbl-cap: "Systematic differences and absolute differences."
-#| tbl-scap: "Systematic differences and absolute differences."
-#| tbl-pos: "H"
+#| output: asis
 table33_path_candidates <- c(
   "outputs/tables/table3-3.csv",
   "../outputs/tables/table3-3.csv"
@@ -161,41 +161,56 @@ if (is.na(table33_path)) {
     paste(table33_path_candidates, collapse = "\n")
   )
 }
-table33 <- read_csv(table33_path, show_col_types = FALSE, na = "NA")
+table33_raw <- read_csv(table33_path, show_col_types = FALSE, na = "NA")
+
+# Restructure to match Table 3.2 style: SBP/DBP group headers
+table33 <- tibble::tibble(
+  Comparison = c("SBP", "Oscillo vs. Auscl", "Ksens vs. Auscl",
+                 "DBP", "Oscillo vs. Auscl", "Ksens vs. Auscl"),
+  `Mean absolute difference` = c(NA, 4.4, 2.0, NA, 5.4, 2.3),
+  `Mean difference` = c(NA, 0.6, 0.9, NA, -4.2, 0.4),
+  SD = c(NA, 7.5, 5.0, NA, 5.9, 4.1),
+  `P value` = c(NA, NA, "< 0.001", NA, NA, "< 0.001")
+)
+
 label_abs <- if (knitr::is_html_output()) {
-  html("Mean of<br>absolute differences")
+  html("Mean absolute<br>difference")
 } else {
-  "Mean of\nabsolute differences"
+  "Mean absolute\ndifference"
 }
 label_mean <- if (knitr::is_html_output()) {
-  html("Mean<br>differences")
+  html("Mean<br>difference")
 } else {
-  "Mean\ndifferences"
-}
-label_pval <- if (knitr::is_html_output()) {
-  html("P value")
-} else {
-  "P value"
+  "Mean\ndifference"
 }
 
-table33 |>
+tbl_gt <- table33 |>
   gt() |>
   cols_label(
-    `Mean of absolute differences` = label_abs,
-    `Mean differences` = label_mean,
-    `P value` = label_pval
+    `Mean absolute difference` = label_abs,
+    `Mean difference` = label_mean
   ) |>
-  cols_align(align = "left",  columns = 1) |>
+  cols_align(align = "left", columns = 1) |>
   cols_align(align = "right", columns = 2:5) |>
   tab_style(
     style = cell_text(weight = "bold"),
     locations = cells_column_labels(everything())
   ) |>
-  sub_missing(missing_text = "") |>
-  tab_options(table.width = pct(100))
-```
+  tab_style(
+    style = cell_text(weight = "bold"),
+    locations = cells_body(
+      columns = Comparison,
+      rows = Comparison %in% c("SBP", "DBP")
+    )
+  ) |>
+  sub_missing(missing_text = "")
 
-Consistent with the agreement analyses, Table 3.3 showed smaller absolute differences for Ksens-BP than for Oscillo-BP in both pressure domains. For systolic measurements, the mean absolute difference was 2.0 mmHg for Ksens-BP versus 4.4 mmHg for Oscillo-BP; for diastolic measurements, the corresponding values were 2.3 and 5.4 mmHg. Mean signed differences further indicated directionality of bias: Oscillo-BP was near-neutral for systolic pressure (+0.6 mmHg) but substantially underestimated diastolic pressure (-4.2 mmHg), whereas Ksens-BP remained close to zero for both systolic (+0.9 mmHg) and diastolic (+0.4 mmHg) readings. The between-device comparisons favored Ksens-BP for both systolic and diastolic performance (both p < 0.001).
+tbl_str <- as.character(as_latex(tbl_gt))
+tbl_str <- gsub("\\\\begin\\{table\\}.*?\\n", "", tbl_str)
+tbl_str <- gsub("\\\\end\\{table\\}", "", tbl_str)
+tbl_str <- gsub("\\\\caption\\*\\{.*?\\}", "", tbl_str)
+cat("\\vspace{2\\baselineskip}\n\\captionof{table}{Systematic differences and absolute differences.}\n", tbl_str, "\n")
+```
 
 ```{=latex}
 \clearpage
@@ -389,7 +404,7 @@ table36 |>
     locations = cells_column_labels(everything())
   ) |>
   tab_source_note("SMD, standardized mean difference.") |>
-  tab_options(table.font.size = px(14), table.width = pct(100))
+  tab_options(table.font.size = px(11), table.width = pct(100))
 ```
 
 ```{r}
@@ -423,7 +438,7 @@ table37 |>
     locations = cells_column_labels(everything())
   ) |>
   tab_source_note("SMD, standardized mean difference.") |>
-  tab_options(table.font.size = px(14), table.width = pct(100))
+  tab_options(table.font.size = px(11), table.width = pct(100))
 ```
 
 Multivariable regression analyses (Tables 3.8 and 3.9) identified AF as the most robust independent correlate of Omron error. In the mixed-effects attempt-level model, AF was associated with markedly increased odds of error (odds ratio [OR], 13.35; 95% CI, 3.00-59.45; p < 0.001), while age, HR, arm circumference, sex, and PAD were not statistically significant after adjustment. In the patient-level logistic model, AF remained strongly associated with error (OR, 4.63; 95% CI, 1.91-11.24; p < 0.001), and older age also emerged as an independent predictor (OR per 1 SD, 1.52; 95% CI, 1.04-2.22; p = 0.029). Smaller arm circumference showed a borderline inverse association (OR per 1 SD, 0.72; 95% CI, 0.50-1.02; p = 0.064), and HR remained directionally positive but non-significant.

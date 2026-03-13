@@ -23,7 +23,7 @@ Exclusion criteria included upper arm injury or surgery preventing cuff placemen
 
 ## Instrumentation and Integrated Measurement Apparatus
 
-To reduce BP variability from sequential measurements, all three modalities (Ksens-BP, Oscillo-BP, and Auscl-BP) were integrated into a single experimental assembly.
+To reduce BP variability from sequential measurements, all three modalities (Ksens-BP, Oscillo-BP, and Auscl-BP) were integrated into a single experimental assembly. This integrated measurement approach has been previously reported [@yang_performance_2026].
 
 ```{r fig.cap="\\textbf{Schematic block diagram of the integrated experimental system.} (1) Controller, (2) BP cuff with embedded K-Sensor, (3) oscillometric BP device, (4) stethoscope, (5) trigger device, and (6) computer. All signals were routed through the controller to the host computer for real-time processing and storage, enabling simultaneous Ksens-BP, Oscillo-BP, and Auscl-BP acquisition under identical cuff-pressure conditions.", fig.scap="Schematic block diagram of the integrated experimental system."}
 fig21_path_candidates <- c(
