@@ -373,9 +373,14 @@ For diastolic absolute error (Figure 3.5), the overall pattern also favored Ksen
 
 Table 3.6 summarizes the attempt-level risk profile for Omron measurement error. Compared with non-error observations, error attempts were associated with older age, smaller arm circumference, lower BMI, and higher HR, with the largest standardized imbalance observed for AF. AF was substantially more frequent in error attempts (39.9% vs 12.8%; SMD = 0.65). PAD was also more prevalent among error attempts, whereas DM and composite ASCVD were less frequent in the error group.
 
+Multivariable mixed-effects regression in Table 3.7 identified AF as the most robust independent correlate of Omron error. AF was associated with markedly increased odds of error (odds ratio [OR], 13.35; 95% CI, 3.00-59.45; p < 0.001), while age, HR, arm circumference, sex, and PAD were not statistically significant after adjustment.
+
+```{=latex}
+\clearpage
+```
+
 ```{r}
-#| tbl-cap: "Omron error descriptive summary (attempt-level)."
-#| tbl-scap: "Omron error descriptive summary (attempt-level)."
+#| results: asis
 table36_path_candidates <- c(
   "outputs/tables/table3-6omron_error_descripitive_attempt.csv",
   "../outputs/tables/table3-6omron_error_descripitive_attempt.csv"
@@ -394,7 +399,7 @@ label_diff36 <- if (knitr::is_html_output()) {
   "Difference\n[95% CI]"
 }
 
-table36 |>
+table36_gt <- table36 |>
   gt() |>
   cols_label(
     `Difference (Error - No) [95% CI]` = label_diff36
@@ -404,18 +409,36 @@ table36 |>
     locations = cells_column_labels(everything())
   ) |>
   tab_source_note("SMD, standardized mean difference.") |>
-  tab_options(table.font.size = px(11), table.width = pct(100))
+  tab_options(
+    table.font.size = px(9),
+    column_labels.font.size = px(9),
+    column_labels.padding = px(1),
+    data_row.padding = px(0)
+  )
+
+if (knitr::is_latex_output()) {
+  table36_str <- as.character(as_latex(table36_gt))
+  table36_str <- gsub("\\\\begin\\{table\\}.*?\\n", "", table36_str)
+  table36_str <- gsub("\\\\end\\{table\\}", "", table36_str)
+  table36_str <- gsub("\\\\caption\\*\\{.*?\\}", "", table36_str)
+  table36_str <- gsub(
+    "\\\\fontsize\\{[0-9.]+pt\\}\\{[0-9.]+pt\\}\\\\selectfont",
+    "\\\\fontsize{11pt}{13pt}\\\\selectfont",
+    table36_str
+  )
+  cat(
+    "\\captionsetup{type=table,skip=2pt}\n",
+    "\\captionof{table}{Omron error descriptive summary.}\n",
+    table36_str,
+    "\n\\vspace{3\\baselineskip}\n",
+    sep = ""
+  )
+} else {
+  table36_gt
+}
 ```
-
-Multivariable mixed-effects regression in Table 3.7 identified AF as the most robust independent correlate of Omron error. AF was associated with markedly increased odds of error (odds ratio [OR], 13.35; 95% CI, 3.00-59.45; p < 0.001), while age, HR, arm circumference, sex, and PAD were not statistically significant after adjustment.
-
-```{=latex}
-\clearpage
-```
-
 ```{r}
-#| tbl-cap: "Mixed-effects logistic regression for Omron error (attempt-level)."
-#| tbl-scap: "Mixed-effects logistic regression for Omron error (attempt-level)."
+#| results: asis
 table38_path_candidates <- c(
   "outputs/tables/table3-8omron_error_logistic_attempt.csv",
   "../outputs/tables/table3-8omron_error_logistic_attempt.csv"
@@ -428,10 +451,19 @@ if (is.na(table38_path)) {
   )
 }
 table38 <- read_csv(table38_path, show_col_types = FALSE, na = "NA")
-table38 |>
+table38_gt <- table38 |>
   gt() |>
   tab_style(
     style = cell_text(weight = "bold"),
     locations = cells_column_labels(everything())
   )
+
+if (knitr::is_latex_output()) {
+  emit_gt_captionof(
+    table38_gt,
+    "Mixed-effects logistic regression for Omron error."
+  )
+} else {
+  table38_gt
+}
 ```
