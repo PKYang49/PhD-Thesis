@@ -4,7 +4,7 @@
 
 In this cardiovascular outpatient cohort, Ksens-BP demonstrated higher concordance with the auscultatory reference than Oscillo-BP across both pressure domains, with roughly half the absolute error and substantially narrower limits of agreement. Oscillo-BP additionally showed a systematic 4.2 mmHg diastolic underestimation that was absent in Ksens-BP. Mixed-effects models identified male sex as an independent predictor of larger Oscillo-SBP discrepancy, with no corresponding effect on Ksens-SBP — a dissociation that persisted after adjustment for other covariates. Subgroup analyses showed that the systolic agreement advantage of Ksens-BP was consistent across all prespecified clinical subgroups. For diastolic performance, the pattern was generally maintained but varied by comorbidity: the Ksens advantage was augmented in PAD patients and attenuated in those with DM, the two subgroups with the most significant interaction terms.
 
-A separate line of analysis addressed oscillometric device failure rather than agreement. AF was the dominant independent predictor of Omron measurement failure, with an adjusted odds ratio exceeding 13 at the attempt level and approximately 5 at the patient level; older age was an additional predictor in the patient-level model. These failure rates were not captured in the agreement analysis and represent a clinically distinct dimension of device performance.
+A separate line of analysis addressed oscillometric device failure rather than agreement. AF was the dominant independent predictor of Omron measurement failure, with an adjusted odds ratio exceeding 13 at the attempt level. These failure rates were not captured in the agreement analysis and represent a clinically distinct dimension of device performance.
 
 ## Mechanistic Basis of Ksens-BP Superiority
 
@@ -40,7 +40,7 @@ The critical distinction between the present study and all four comparators is t
 
 ## Atrial Fibrillation as the Primary Driver of Oscillometric Failure
 
-AF was strongly associated with oscillo-BP measurement failure. Although AF accounted for only 15.7% of the enrolled cohort, it contributed to 39.9% of failed measurement attempts, corresponding to an adjusted attempt-level OR of 13.35 (95% CI, 3.00–59.45). At the patient level, AF remained the strongest independent predictor of device failure (OR, 4.63; 95% CI, 1.91–11.24), with older age emerging as a secondary independent factor.
+AF was strongly associated with oscillo-BP measurement failure. Although AF accounted for only 15.7% of the enrolled cohort, it contributed to 39.9% of failed measurement attempts, corresponding to an adjusted attempt-level OR of 13.35 (95% CI, 3.00–59.45).
 
 In contrast to our failure-rate findings, most prior studies have primarily assessed agreement in measurements that yield an output, with limited attention to measurement failure (no-reading) rates. In our review of the available validation and comparative studies, we did not identify reports that clearly quantify oscillometric measurement failure rates in AF. This evidentiary gap is clinically relevant because standard validation protocol typically prespecify a minimum number of successful paired measurements; as a result, attempts that fail to produce an output are either excluded by design or remain unreported. As a result, statements that oscillometric devices show “acceptable accuracy” in AF may overlook an important real-world limitation, that a meaningful subset of AF measurements may terminate without any usable BP value.
 

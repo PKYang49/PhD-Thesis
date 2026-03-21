@@ -122,4 +122,4 @@ Agreement between devices and the auscultatory reference was evaluated using Lin
 
 Factors associated with measurement differences were assessed using linear mixed-effects models with participant-level random intercepts. Subgroup analyses were also performed using mixed-effects models with estimated marginal means.
 
-Oscillo-BP error was analyzed at attempt and patient levels using descriptive comparisons — including standardized mean difference (SMD) to quantify covariate imbalance — and logistic regression models (mixed-effects logistic model for attempt-level data and standard logistic model for patient-level data). Odds ratios with 95% confidence intervals are reported. All tests were two-sided, and p < 0.05 was considered statistically significant.
+Oscillo-BP error was analyzed at the attempt level using descriptive comparisons — including standardized mean difference (SMD) to quantify covariate imbalance — and a mixed-effects logistic regression model. Odds ratios with 95% confidence intervals are reported. All tests were two-sided, and p < 0.05 was considered statistically significant.
